@@ -32,6 +32,14 @@
 $ npm install
 ```
 
+
+## Start DB
+
+```bash
+# up mongo db
+$ docker-compose up -d
+
+```
 ## Running the app
 
 ```bash

@@ -24,3 +24,17 @@ services:
       - ME_CONFIG_BASICAUTH_PASSWORD=pass
     ports:
       - '8081:8081'
+  nest-service:
+      build:
+        context: .
+        dockerfile: Dockerfile
+      container_name: nest-docker-mongo
+      environment:
+        - PORT=${PORT}
+      ports:
+        - '3000:3000'
+      depends_on:
+        - mongodb
+        - mongo-express
+      volumes:
+        - .:/home/node/app

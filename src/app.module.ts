@@ -7,9 +7,9 @@ import { ProductsModule } from './@Core/products/products.module';
 import { SaveProductCommand } from './@Core/products/application/ports/in/save-product.command';
 
 @Module({
-  imports: [forwardRef(() => ProductsModule),MongooseModule.forRoot('mongodb://admin:pass@localhost:27017', {dbName: 'fiap'})],
-  controllers: [AppController],
-  providers: [AppService, ...Services, SaveProductCommand],
-  exports: [...Services, SaveProductCommand ]
+  imports: [forwardRef(() => ProductsModule),MongooseModule.forRoot('mongodb://admin:pass@mongo-dev:27017', {dbName: 'fiap'})],
+  controllers: [],
+  providers: [],
+  exports: []
 })
 export class AppModule {}

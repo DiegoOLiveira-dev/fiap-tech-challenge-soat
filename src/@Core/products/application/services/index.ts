@@ -8,5 +8,4 @@ export const Services: Provider[] =[
         provide: SaveProductUseCase,
         useClass: SaveProductService
     },
-    SaveProductCommand
 ]

@@ -13,8 +13,8 @@ import { SaveProductCommand } from "../application/ports/in/save-product.command
         forwardRef(() => ApplicationModule),
         MongooseModule.forFeature([{name: ProductSchema.name, schema: ProductEntity }])
     ],
-    providers: [...ServicesOut, SaveProductCommand],
-    exports: [...ServicesOut, SaveProductCommand],
+    providers: [...ServicesOut],
+    exports: [...ServicesOut],
     controllers: [SaveProductController]
 })
 export class AdapterModule {}

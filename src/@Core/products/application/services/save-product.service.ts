@@ -2,13 +2,13 @@ import { Injectable } from "@nestjs/common";
 import { SaveProductUseCase } from "../ports/in/save-product.use-case";
 import { ProductPersistencePort } from "../ports/out/product-persistente.port";
 import { Product } from "../../domain/Products";
-import { SaveMovieCommand } from "../ports/in/save-product.command";
+import { SaveProductCommand } from "../ports/in/save-product.command";
 
 @Injectable()
 export class SaveProductService implements SaveProductUseCase {
     constructor(private productPersistencePort: ProductPersistencePort){}
 
-    async saveProduct(command: SaveMovieCommand): Promise<void> {
+    async saveProduct(command: SaveProductCommand): Promise<void> {
         const product: Product = {
             name: command.name,
             description: command.description,

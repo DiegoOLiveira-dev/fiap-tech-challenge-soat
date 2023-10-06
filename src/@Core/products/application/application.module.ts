@@ -8,7 +8,7 @@ import { SaveProductCommand } from "./ports/in/save-product.command";
     imports: [
         forwardRef(() => AdapterModule),
     ],
-    providers: [...Services, SaveProductCommand],
-    exports: [...Services, SaveProductCommand],
+    providers: [...Services],
+    exports: [...Services],
 })
 export class ApplicationModule {}

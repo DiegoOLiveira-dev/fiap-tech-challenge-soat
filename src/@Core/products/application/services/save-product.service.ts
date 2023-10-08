@@ -9,13 +9,24 @@ export class SaveProductService implements SaveProductUseCase {
     constructor(private productPersistencePort: ProductPersistencePort){}
 
     async saveProduct(command: SaveProductCommand): Promise<void> {
-        const product: Product = {
-            name: command.name,
-            description: command.description,
-            id_category: command.id_category,
-            image_url: command.image_url,
-            price: command.price
-        };
-        await this.productPersistencePort.persistProduct(product)
+        try {
+            const product: Product = {
+                name: command.name,
+                description: command.description,
+                id_category: command.id_category,
+                image_url: command.image_url,
+                price: command.price
+            };
+            await this.productPersistencePort.persistProduct(product)
+        } catch (error) {
+            throw error;
+        }
+
+    }
+
+    async getAllProducts(): Promise<Product[]> {
+        
+       return await this.productPersistencePort.getAllProducts()
+
     }
 }

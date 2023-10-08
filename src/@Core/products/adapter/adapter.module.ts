@@ -1,17 +1,13 @@
 import { Module, forwardRef } from "@nestjs/common";
-import { AppModule } from "src/app.module";
 import { ServicesOut } from "./out";
 import { SaveProductController } from "./in/web/save-product.controller";
-import { Mongoose } from "mongoose";
-import { MongooseModule } from "@nestjs/mongoose";
-import { ProductEntity, ProductSchema } from "./out/product-entity";
 import { ApplicationModule } from "../application/application.module";
-import { SaveProductCommand } from "../application/ports/in/save-product.command";
+import { MongoDataServicesModule } from "src/@Core/frameworks/data-services/mongo/mongo-data-services.module";
 
 @Module({
     imports: [
         forwardRef(() => ApplicationModule),
-        MongooseModule.forFeature([{name: ProductSchema.name, schema: ProductEntity }])
+        forwardRef(() => MongoDataServicesModule)
     ],
     providers: [...ServicesOut],
     exports: [...ServicesOut],

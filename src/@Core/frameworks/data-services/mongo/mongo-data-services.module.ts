@@ -7,11 +7,13 @@ import {
   ProductSchema,
 } from '../mongo/model/product-entity';
 import { MongoDataServices } from './mongo-data-services.service';
+import { Category, CategorySchema } from './model/category-entity';
 
 @Module({
   imports: [
     MongooseModule.forFeature([
       { name: Product.name, schema: ProductSchema },
+      { name: Category.name, schema: CategorySchema },
 
     ]),
     MongooseModule.forRoot('mongodb://admin:pass@mongo-dev:27017', {dbName: 'fiap'}),

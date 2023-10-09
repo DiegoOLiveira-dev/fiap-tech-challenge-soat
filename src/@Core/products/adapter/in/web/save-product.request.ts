@@ -1,6 +1,7 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { Expose } from "class-transformer";
 import { IsNotEmpty } from "class-validator";
+import { Category } from "src/@Core/frameworks/data-services/mongo/model/category-entity";
 import { SaveProductCommand } from "src/@Core/products/application/ports/in/save-product.command";
 
 export class SaveProductRequest {
@@ -27,10 +28,10 @@ export class SaveProductRequest {
     @Expose()
     @IsNotEmpty()
     @ApiProperty()
-    readonly id_category: number;
+    readonly category: Category;
 
     toCommand(): SaveProductCommand {
-        return new SaveProductCommand(this.name, this.description, this.price, this.id_category, this.image_url)
+        return new SaveProductCommand(this.name, this.description, this.price, this.category, this.image_url)
     }
     
 }

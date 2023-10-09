@@ -1,13 +1,10 @@
 import { Module, forwardRef } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
-import { Services } from './@Core/products/application/services';
 import { ProductsModule } from './@Core/products/products.module';
-import { SaveProductCommand } from './@Core/products/application/ports/in/save-product.command';
+import { CategoriesModule } from './@Core/categories/categories.module';
 
 @Module({
-  imports: [forwardRef(() => ProductsModule),MongooseModule.forRoot('mongodb://admin:pass@mongo-dev:27017', {dbName: 'fiap'})],
+  imports: [forwardRef(() => ProductsModule),forwardRef(() => CategoriesModule)],
   controllers: [],
   providers: [],
   exports: []

@@ -13,7 +13,7 @@ export class SaveProductService implements SaveProductUseCase {
             const product: Product = {
                 name: command.name,
                 description: command.description,
-                id_category: command.id_category,
+                category: command.category,
                 image_url: command.image_url,
                 price: command.price
             };

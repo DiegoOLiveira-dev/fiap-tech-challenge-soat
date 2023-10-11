@@ -18,4 +18,8 @@ export class MongoGenericRepository<T> implements IGenericRepository<T> {
     return this._repository.create(item);
   }
 
+  createMany(item: T[]): any {
+    return this._repository.insertMany(item);
+  }
+
 }

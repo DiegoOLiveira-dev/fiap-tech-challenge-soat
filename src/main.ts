@@ -8,7 +8,6 @@ async function bootstrap() {
     .setTitle('Post Tech FIAP API')
     .setDescription('Lanchonete API description')
     .setVersion('1.0')
-    .addTag('lanchonete')
     .build()
 
   const document = SwaggerModule.createDocument(app, config)

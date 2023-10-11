@@ -14,7 +14,7 @@ export class SaveProductController {
         status: 201,
         description: 'Saved Successfully.'
     }) 
-    @ApiTags('lanchonete')
+    @ApiTags('products')
     @UsePipes(new ValidationPipe({transform: true}))
     save(@Body() request: SaveProductRequest) {
         const command: SaveProductCommand = request.toCommand();
@@ -22,7 +22,7 @@ export class SaveProductController {
     }
 
     @Get()
-    @ApiTags('lanchonete')
+    @ApiTags('products')
     async getAllProducts() {
         return await this.saveProductUseCase.getAllProducts()
     }

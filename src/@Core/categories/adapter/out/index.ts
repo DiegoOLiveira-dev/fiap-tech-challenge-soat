@@ -1,7 +1,7 @@
 import { Provider } from "@nestjs/common";
-import { CategoryMapper } from "./product.mapper";
+import { CategoryMapper } from "./category.mapper";
 import { CategoryPersistencePort } from "../../application/ports/out/product-persistente.port";
-import { CategoryPersistenceAdapter } from "./product-persistence.adapter";
+import { CategoryPersistenceAdapter } from "./category-persistence.adapter";
 
 export const ServicesOut: Provider[] = [
     {

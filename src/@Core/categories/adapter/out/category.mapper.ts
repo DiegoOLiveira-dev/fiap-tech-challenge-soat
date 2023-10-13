@@ -1,4 +1,4 @@
-import { Injectable } from "@nestjs/common";
+import { BadRequestException, HttpException, Injectable } from "@nestjs/common";
 import { IDataServices } from "../../../abstracts/data-services.abstract";
 import { Category } from "../../domain/Category";
 
@@ -6,10 +6,15 @@ import { Category } from "../../domain/Category";
 export class CategoryMapper {
   constructor(private dataServices: IDataServices) {}
 
-  async createProduct(category: Category): Promise<Category> {
-    const createdCategory = await this.dataServices.categories.create(category);
+  async createProduct(category: Category): Promise<any> {
 
-    return createdCategory;
+    try {
+      const createdCategory = await this.dataServices.categories.create(category);
+      return createdCategory;
+    } catch (error) {
+      throw new HttpException(error.errmsg, 400)
+    }
+    
   }
 
   async getAllCategories(): Promise<Category[]> {

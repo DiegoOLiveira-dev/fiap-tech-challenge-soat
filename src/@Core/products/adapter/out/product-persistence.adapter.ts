@@ -8,7 +8,7 @@ export class ProductPersistenceAdapter implements ProductPersistencePort {
     constructor(private productMapper: ProductMapper) {}
 
     async persistProduct(product: Product) {
-        this.productMapper.createProduct(product)
+        return this.productMapper.createProduct(product)
     }
 
     async getAllProducts(): Promise<Product[]> {

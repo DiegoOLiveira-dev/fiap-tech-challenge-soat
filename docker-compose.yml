@@ -9,8 +9,9 @@ services:
       - MONGO_INITDB_DATABASE=auth
       - MONGO_INITDB_ROOT_PASSWORD=pass
     ports:
-      - '27017:27017'
-
+      - "27017:27017"
+    volumes:
+      - ./scriptinitial/docker-entrypoint-initdb.d/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
   mongo-express:
     container_name: mongo-express
     image: mongo-express
@@ -23,18 +24,18 @@ services:
       - ME_CONFIG_BASICAUTH_USERNAME=admin
       - ME_CONFIG_BASICAUTH_PASSWORD=pass
     ports:
-      - '8081:8081'
+      - "8081:8081"
   nest-service:
-      build:
-        context: .
-        dockerfile: Dockerfile
-      container_name: nest-docker-mongo
-      environment:
-        - PORT=${PORT}
-      ports:
-        - '3000:3000'
-      depends_on:
-        - mongodb
-        - mongo-express
-      volumes:
-        - .:/home/node/app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nest-docker-mongo
+    environment:
+      - PORT=${PORT}
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongodb
+      - mongo-express
+    volumes:
+      - .:/home/node/app

@@ -4,5 +4,6 @@ import { SaveProductCommand } from "./save-product.command";
 export abstract class SaveProductUseCase {
     abstract saveProduct(command: SaveProductCommand): Promise<void>
     abstract getAllProducts(): Promise<Product[]>
-
+    abstract getProductsByCategory(id?: number): Promise<Product[]>
+    abstract deleteProductById(id: number): Promise<Product>
 }

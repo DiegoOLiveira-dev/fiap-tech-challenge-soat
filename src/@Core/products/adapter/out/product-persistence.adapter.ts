@@ -16,4 +16,12 @@ export class ProductPersistenceAdapter implements ProductPersistencePort {
 
     }
 
+    async getProductsByCategory(filter: Record<string, any>): Promise<Product[]> {
+        return await this.productMapper.getProductsByCategory(filter)
+    }
+
+    async deleteProductById(id: number): Promise<Product> {
+        return await this.productMapper.deleteProductByID(id)
+    }
+
 }

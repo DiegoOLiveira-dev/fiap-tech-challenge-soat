@@ -22,4 +22,14 @@ export class ProductMapper {
     const allProducts = await this.dataServices.products.getAll()
     return allProducts
   }
+
+  async getProductsByCategory(filter: Record<string, any>): Promise<Product[]> {
+    const productsByCayegory = await this.dataServices.products.getByFilter(filter)
+    return productsByCayegory
+  }
+
+  async deleteProductByID(id: number): Promise<Product> {
+    const deletedProduct = await this.dataServices.products.deleteById(id)
+    return deletedProduct
+  }
 }

@@ -29,4 +29,13 @@ export class SaveProductService implements SaveProductUseCase {
        return await this.productPersistencePort.getAllProducts()
 
     }
+
+    async getProductsByCategory(id?: number): Promise<Product[]> {
+        const filter = {category: id}
+        return await this.productPersistencePort.getProductsByCategory(filter)
+    }
+
+    async deleteProductById(id: number): Promise<Product> {
+        return await this.productPersistencePort.deleteProductById(id)
+    }
 }

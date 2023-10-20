@@ -24,4 +24,8 @@ export class ProductPersistenceAdapter implements ProductPersistencePort {
         return await this.productMapper.deleteProductByID(id)
     }
 
+    async updateProductById(id: number, product: Product): Promise<Product> {
+        return await this.productMapper.updateProductByID(id, product)
+    }
+
 }

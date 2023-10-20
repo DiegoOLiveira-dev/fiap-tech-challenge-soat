@@ -1,6 +1,6 @@
 import { Provider } from "@nestjs/common"
 import { CategoriesUseCase } from "../ports/in/categories.use-case"
-import { SaveCategoryService } from "./save-category.service"
+import { SaveCategoryService } from "./category.service"
 
 export const Services: Provider[] =[
     {

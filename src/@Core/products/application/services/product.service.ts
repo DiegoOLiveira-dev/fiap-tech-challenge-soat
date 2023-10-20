@@ -1,8 +1,8 @@
 import { Injectable } from "@nestjs/common";
-import { SaveProductUseCase } from "../ports/in/save-product.use-case";
+import { SaveProductUseCase } from "../ports/in/product.use-case";
 import { ProductPersistencePort } from "../ports/out/product-persistente.port";
 import { Product } from "../../domain/Products";
-import { SaveProductCommand } from "../ports/in/save-product.command";
+import { SaveProductCommand } from "../ports/in/product.command";
 
 @Injectable()
 export class SaveProductService implements SaveProductUseCase {
@@ -37,5 +37,9 @@ export class SaveProductService implements SaveProductUseCase {
 
     async deleteProductById(id: number): Promise<Product> {
         return await this.productPersistencePort.deleteProductById(id)
+    }
+
+    async updateProductById(id: number, command: SaveProductCommand): Promise<Product> {
+        return await this.productPersistencePort.updateProductById(id, command)
     }
 }

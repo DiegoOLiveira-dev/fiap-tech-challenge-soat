@@ -30,4 +30,8 @@ export class MongoGenericRepository<T> implements IGenericRepository<T> {
       return this._repository.findByIdAndDelete(id).exec();
   }
 
+  updateById(id: number, item: T): Promise<T> {
+      return this._repository.findByIdAndUpdate(id, item).exec();
+  }
+
 }

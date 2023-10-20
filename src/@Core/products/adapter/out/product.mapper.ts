@@ -32,4 +32,9 @@ export class ProductMapper {
     const deletedProduct = await this.dataServices.products.deleteById(id)
     return deletedProduct
   }
+
+  async updateProductByID(id: number, product : Product): Promise<Product> {
+    const updatedProduct = await this.dataServices.products.updateById(id, product)
+    return updatedProduct
+  }
 }

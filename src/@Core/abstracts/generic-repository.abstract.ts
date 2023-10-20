@@ -4,5 +4,6 @@ export abstract class IGenericRepository<T> {
     abstract createMany(item: T[]): any;
     abstract getByFilter(filter: Record<string, any>): Promise<T[]>;
     abstract deleteById(id: number): Promise<T>
+    abstract updateById(id: number, item: T): Promise<T>
   
 }

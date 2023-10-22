@@ -15,6 +15,9 @@ db.createUser(
 db = db.getSiblingDB('fiap');
 db.createCollection('categories');
 db.createCollection('products');
+db.createCollection('pedido');
+db.createCollection('statuspreparo');
+db.createCollection('cliente');
 
 //Inserindo infos na tabelas na tabelas
 var categories = db.categories.insertMany([
@@ -62,3 +65,40 @@ var products = db.products.insertMany([
     "category": categories.insertedIds[3]
   }
 ])
+
+var statuspreparo = db.status.insertMany([
+  {
+    "id_status": "1",
+    "Descricao": "Recebido"
+  },
+  {
+    "id_status": "2",
+    "Descricao": "em preparo"
+  },
+  {
+    "id_status": "3",
+    "Descricao": "pronto"
+  },
+  {
+    "id_status": "4",
+    "Descricao": "retirado"
+  },
+])
+
+var cliente = db.cliente.insertMany([
+  {
+    "id_cliente": "1",
+    "nome": "Ronaldo Fenônmeno",
+    "email": "ronaldofenomeno@fake.com.br"
+  }
+])
+
+var pedido = db.pedido.insertMany([
+  {
+    "id_status": "1",
+    "id_cliente": "1",
+    "id_pedido": "1",
+    "nome_produto": "Milk-Shake"
+  }
+])
+

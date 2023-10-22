@@ -39,3 +39,9 @@ services:
       - mongo-express
     volumes:
       - .:/home/node/app
+    deploy:
+      resources:
+        limits:
+          memory: 2048M
+        reservations:
+          memory: 2048M

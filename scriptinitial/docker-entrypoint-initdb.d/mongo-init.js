@@ -15,7 +15,7 @@ db.createUser(
 db = db.getSiblingDB('fiap');
 db.createCollection('categories');
 db.createCollection('products');
-db.createCollection('pedido');
+db.createCollection('pedidos');
 db.createCollection('statuspreparo');
 db.createCollection('cliente');
 
@@ -93,7 +93,7 @@ var cliente = db.cliente.insertMany([
   }
 ])
 
-var pedido = db.pedido.insertMany([
+var pedido = db.pedidos.insertMany([
   {
     "id_status": "1",
     "descricao_status": "recebido",

@@ -11,7 +11,7 @@ export class PedidoController {
     @Get()
     @ApiTags('todosospedido')
     async getAllProducts() {
-        return this.useCasePedido.getAllPedidos();
+        return await this.useCasePedido.getAllPedidos();
         
     }
 

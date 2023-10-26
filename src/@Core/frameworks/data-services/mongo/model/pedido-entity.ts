@@ -1,11 +1,12 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import mongoose, { HydratedDocument } from 'mongoose';
+import { Product } from './product-entity';
 
 export type PedidoDocument = HydratedDocument<Pedido>;
 
 @Schema()
 export class Pedido {
-  @Prop({unique: true})
+    @Prop({unique: true})
     id_pedido: string;
 
     @Prop()
@@ -17,17 +18,14 @@ export class Pedido {
     @Prop()
     nome_cliente: string;
 
-    @Prop()
-    produtos: string;
+    //@Prop({type: mongoose.Schema.Types.ObjectId, ref: 'Product'},) //para poder fazer essa referencia e ja trazer o produto aqui vc precisa ter o id do produto e terazer o objeto inteiro como esta no banco.
+    produtos: Product[];
 
     @Prop()
     total: string;
 
     @Prop()
     id_status: string;
-
-    @Prop({type: mongoose.Schema.Types.ObjectId, ref: 'Pedido'},)
-    category: Pedido;
 }
 
 export const PedidoSchema = SchemaFactory.createForClass(Pedido);

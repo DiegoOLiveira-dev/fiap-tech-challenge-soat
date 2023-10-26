@@ -66,7 +66,7 @@ var products = db.products.insertMany([
   }
 ])
 
-var statuspreparo = db.status.insertMany([
+var statuspreparo = db.statuspreparo.insertMany([
   {
     "id_status": "1",
     "Descricao": "Recebido"
@@ -96,9 +96,18 @@ var cliente = db.cliente.insertMany([
 var pedido = db.pedido.insertMany([
   {
     "id_status": "1",
+    "descricao_status": "recebido",
+
     "id_cliente": "1",
-    "id_pedido": "1",
-    "nome_produto": "Milk-Shake"
+    "nome_cliente": "1",
+    "produtos": [{
+      "product": "Milk-Shake",
+      "qtd": "2",
+      "preco_unitario": "18"
+    }],
+    "total": "36",
+    "id_pedido": "1"
   }
+
 ])
 

@@ -17,7 +17,7 @@ db.createCollection('categories');
 db.createCollection('products');
 db.createCollection('pedido');
 db.createCollection('statuspreparo');
-db.createCollection('cliente');
+db.createCollection('client');
 
 //Inserindo infos na tabelas na tabelas
 var categories = db.categories.insertMany([
@@ -85,9 +85,9 @@ var statuspreparo = db.status.insertMany([
   },
 ])
 
-var cliente = db.cliente.insertMany([
+var cliente = db.client.insertMany([
   {
-    "id_cliente": "1",
+    "id_cliente": 1,
     "nome": "Ronaldo Fenônmeno",
     "email": "ronaldofenomeno@fake.com.br"
   }

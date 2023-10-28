@@ -7,7 +7,7 @@ export class SaveClientRequest {
     @Expose()
     @IsNotEmpty()
     @ApiProperty()
-    readonly id_cliente: number;
+    readonly cpf_client: number;
 
     @Expose()
     @IsNotEmpty()
@@ -20,7 +20,7 @@ export class SaveClientRequest {
     readonly email: string;
 
     toCommand(): SaveClientCommand {
-        return new SaveClientCommand(this.id_cliente, this.name, this.email)
+        return new SaveClientCommand(this.cpf_client, this.name, this.email)
     }
     
 }

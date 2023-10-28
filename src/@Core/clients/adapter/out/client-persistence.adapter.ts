@@ -15,4 +15,8 @@ export class ClientPersistenceAdapter implements ClientPersistencePort {
         return await this.clientMapper.getAllClients()
 
     }
+
+    async getClientByCPF(filter: Record<string, any>): Promise<Client[]> {
+        return await this.clientMapper.getClientByCPF(filter)
+    }
 }

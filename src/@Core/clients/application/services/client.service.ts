@@ -11,7 +11,7 @@ export class SaveClientService implements SaveClientUseCase {
     async saveClient(command: SaveClientCommand): Promise<void> {
         try {
             const client: Client = {
-                id_cliente: command.id_cliente,
+                cpf_client: command.cpf_client,
                 name: command.name,
                 email: command.email
             };
@@ -26,5 +26,10 @@ export class SaveClientService implements SaveClientUseCase {
         
        return await this.clientPersistencePort.getAllClients()
 
+    }
+
+    async getClientByCPF(id?: number): Promise<Client[]> {
+        const filter = {cpf_client: id}
+        return await this.clientPersistencePort.getClientByCPF(filter)
     }
 }

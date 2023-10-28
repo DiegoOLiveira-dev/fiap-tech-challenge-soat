@@ -6,7 +6,7 @@ export type ClientDocument = HydratedDocument<Client>;
 @Schema()
 export class Client {
     @Prop({unique: true})
-    id_cliente: number;
+    cpf_client: number;
     @Prop()
     name: string;
     @Prop({unique: true})

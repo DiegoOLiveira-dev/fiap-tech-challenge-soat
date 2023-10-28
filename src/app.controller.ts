@@ -61,9 +61,14 @@ export class AppController {
     
     const clients = [
       {
-        "id_cliente": 1,
+        "cpf_client": 21654473057,
         "name": "Ronaldo Nazário",
         "email": "ronaldon@fake.com.br"
+      },
+      {
+        "cpf_client": 78279389067,
+        "name": "Cássio Ramos",
+        "email": "cassior@fake.com.br"
       }
     ]
     await this.dataServices.clients.createMany(clients);

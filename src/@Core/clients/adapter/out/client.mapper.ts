@@ -22,4 +22,9 @@ export class ClientMapper {
     const allClients = await this.dataServices.clients.getAll()
     return allClients
   }
+
+  async getClientByCPF(filter: Record<string, any>): Promise<Client[]> {
+    const client = await this.dataServices.clients.getByFilter(filter)
+    return client
+  }
 }

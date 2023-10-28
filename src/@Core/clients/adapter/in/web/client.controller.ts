@@ -26,5 +26,11 @@ export class SaveClientController {
     async getAllClients() {
         return await this.saveClientUseCase.getAllClients()
     }
+    
+    @Get('filterbycpf')
+    @ApiTags('clients')
+    async getClientByCPF(@Query() query) {
+        return await this.saveClientUseCase.getClientByCPF(query.cpf_client)
+    }
 
 }

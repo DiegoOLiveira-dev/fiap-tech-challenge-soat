@@ -88,8 +88,8 @@ var statuspreparo = db.status.insertMany([
 var cliente = db.client.insertMany([
   {
     "id_cliente": 1,
-    "nome": "Ronaldo Fenônmeno",
-    "email": "ronaldofenomeno@fake.com.br"
+    "name": "Ronaldo Nazário",
+    "email": "ronaldon@fake.com.br"
   }
 ])
 
@@ -98,7 +98,7 @@ var pedido = db.pedido.insertMany([
     "id_status": "1",
     "id_cliente": "1",
     "id_pedido": "1",
-    "nome_produto": "Milk-Shake"
+    "name_produto": "Milk-Shake"
   }
 ])
 

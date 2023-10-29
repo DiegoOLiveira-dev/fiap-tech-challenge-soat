@@ -6,4 +6,5 @@ export class Product {
     price: string
     image_url: string
     category: Category
+    qtde: number
 }

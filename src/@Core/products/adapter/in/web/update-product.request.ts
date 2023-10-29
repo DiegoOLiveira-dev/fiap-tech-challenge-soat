@@ -24,8 +24,12 @@ export class UpdateProductRequest {
     @ApiProperty()
     readonly category: Category;
 
-    toCommand(): SaveProductCommand{
-        return new SaveProductCommand(this.name, this.description, this.price, this.category, this.image_url)
+    @Expose()
+    @ApiProperty()
+    readonly qtde: number;
+
+    toCommand(): SaveProductCommand {
+        return new SaveProductCommand(this.name, this.description, this.price, this.category, this.image_url, this.qtde)
     }
-    
+
 }

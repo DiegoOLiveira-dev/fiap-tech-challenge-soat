@@ -8,15 +8,19 @@ import {
 } from '../mongo/model/product-entity';
 import { MongoDataServices } from './mongo-data-services.service';
 import { Category, CategorySchema } from './model/category-entity';
+import { Pedido, PedidoSchema } from './model/pedido-entity';
 
 @Module({
   imports: [
     MongooseModule.forFeature([
       { name: Product.name, schema: ProductSchema },
       { name: Category.name, schema: CategorySchema },
+      { name: Pedido.name, schema: PedidoSchema },
 
     ]),
-    MongooseModule.forRoot('mongodb://admin:pass@mongo-dev:27017', {dbName: 'fiap'}),
+    MongooseModule.forRoot('mongodb://admin:pass@mongo-dev:27017', { dbName: 'fiap' }),
+    //MongooseModule.forRoot('mongodb://admin:pass@localhost:27017', { dbName: 'fiap' }),
+
   ],
   providers: [
     {
@@ -26,4 +30,4 @@ import { Category, CategorySchema } from './model/category-entity';
   ],
   exports: [IDataServices],
 })
-export class MongoDataServicesModule {}
+export class MongoDataServicesModule { }

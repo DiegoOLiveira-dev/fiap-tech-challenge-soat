@@ -10,25 +10,29 @@ import {
 } from './model/product-entity';
 import { Category, CategoryDocument } from './model/category-entity';
 
+import { Pedido, PedidoDocument } from './model/pedido-entity';
+
 @Injectable()
 export class MongoDataServices
-  implements IDataServices, OnApplicationBootstrap
-{
+  implements IDataServices, OnApplicationBootstrap {
   products: MongoGenericRepository<Product>;
   categories: MongoGenericRepository<Category>;
+  pedido: MongoGenericRepository<Pedido>;
 
 
   constructor(
     @InjectModel(Product.name)
     private ProductRepository: Model<ProductDocument>,
     @InjectModel(Category.name)
-    private CategoryRepository: Model<CategoryDocument>
-
+    private CategoryRepository: Model<CategoryDocument>,
+    @InjectModel(Pedido.name)
+    private PedidoRepository: Model<PedidoDocument>
   ) {
   }
 
   onApplicationBootstrap() {
     this.products = new MongoGenericRepository<Product>(this.ProductRepository, ['category']);
     this.categories = new MongoGenericRepository<Category>(this.CategoryRepository);
+    this.pedido = new MongoGenericRepository<Pedido>(this.PedidoRepository, ['produtos']);
   }
 }

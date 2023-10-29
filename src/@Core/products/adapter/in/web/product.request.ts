@@ -30,8 +30,13 @@ export class SaveProductRequest {
     @ApiProperty()
     readonly category: Category;
 
+    @Expose()
+    @IsNotEmpty()
+    @ApiProperty()
+    readonly qtde: number;
+
     toCommand(): SaveProductCommand {
-        return new SaveProductCommand(this.name, this.description, this.price, this.category, this.image_url)
+        return new SaveProductCommand(this.name, this.description, this.price, this.category, this.image_url, this.qtde)
     }
-    
+
 }

@@ -2,7 +2,7 @@ import { ApiProperty } from "@nestjs/swagger";
 import { Expose } from "class-transformer";
 import { IsNotEmpty } from "class-validator";
 import { SavePedidoCommand } from "../../../application/ports/in/save-pedido.command";
-import { Product } from "src/@Core/products/domain/Products";
+import { Product } from "src/@Core/frameworks/data-services/mongo/model/product-entity";
 
 export class SavePedidoRequest {
 

@@ -10,12 +10,11 @@ import {
 } from './model/product-entity';
 import { Category, CategoryDocument } from './model/category-entity';
 
-import { Pedido, PedidoDocument} from './model/pedido-entity';
+import { Pedido, PedidoDocument } from './model/pedido-entity';
 
 @Injectable()
 export class MongoDataServices
-  implements IDataServices, OnApplicationBootstrap
-{
+  implements IDataServices, OnApplicationBootstrap {
   products: MongoGenericRepository<Product>;
   categories: MongoGenericRepository<Category>;
   pedido: MongoGenericRepository<Pedido>;
@@ -34,6 +33,6 @@ export class MongoDataServices
   onApplicationBootstrap() {
     this.products = new MongoGenericRepository<Product>(this.ProductRepository, ['category']);
     this.categories = new MongoGenericRepository<Category>(this.CategoryRepository);
-    this.pedido = new MongoGenericRepository<Pedido>(this.PedidoRepository);
+    this.pedido = new MongoGenericRepository<Pedido>(this.PedidoRepository, ['produtos']);
   }
 }

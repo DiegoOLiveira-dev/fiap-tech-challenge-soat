@@ -41,28 +41,32 @@ var products = db.products.insertMany([
     "description": "Sorvete batido com leite",
     "price": "18",
     "image_url": "teste",
-    "category": categories.insertedIds[0]
+    "category": categories.insertedIds[0],
+    "qtde": 1
   },
   {
     "name": "Batata Frita",
     "description": "batatas fritas em oleo",
     "price": "20",
     "image_url": "teste",
-    "category": categories.insertedIds[1]
+    "category": categories.insertedIds[1],
+    "qtde": 1
   },
   {
     "name": "Hamburguer",
     "description": "pao com carne",
     "price": "35",
     "image_url": "teste",
-    "category": categories.insertedIds[2]
+    "category": categories.insertedIds[2],
+    "qtde": 1
   },
   {
     "name": "Coca cola",
     "description": "bebida",
     "price": "10",
     "image_url": "teste",
-    "category": categories.insertedIds[3]
+    "category": categories.insertedIds[3],
+    "qtde": 1
   }
 ])
 
@@ -105,9 +109,11 @@ var pedido = db.pedidos.insertMany([
       "description": "Sorvete batido com leite",
       "price": "18",
       "image_url": "teste",
-      "category": categories.insertedIds[0]
+      "category": categories.insertedIds[0],
+      "qtde": 1
+
     },
-    "total": "36",
+    "total": "18",
   }
 
 ])

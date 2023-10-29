@@ -16,7 +16,14 @@ export class Pedido {
     @Prop()
     nome_cliente: string;
 
-    //@Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Product' },) //para poder fazer essa referencia e ja trazer o produto aqui vc precisa ter o id do produto e terazer o objeto inteiro como esta no banco.
+    @Prop({
+        _id: { type: mongoose.Schema.Types.ObjectId },
+        name: { type: mongoose.Schema.Types.ObjectId },
+        description: { type: mongoose.Schema.Types.ObjectId },
+        price: { type: mongoose.Schema.Types.ObjectId },
+        image_url: { type: mongoose.Schema.Types.ObjectId },
+        category: { type: mongoose.Schema.Types.ObjectId, ref: 'Category' }
+    })
     produtos: Product[];
 
     @Prop()

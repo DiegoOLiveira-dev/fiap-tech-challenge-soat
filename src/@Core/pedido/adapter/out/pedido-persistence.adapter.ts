@@ -5,10 +5,9 @@ import { PedidoMapper } from "./pedido.mapper";
 
 @Injectable()
 export class PedidoPersistenceAdapter implements PedidoPersistencePort {
-    constructor(private pedidoMapper: PedidoMapper) {}
-    
+    constructor(private pedidoMapper: PedidoMapper) { }
+
     async persistPedido(pedido: Pedido) {
-     console.log('request-PedidoPersistenceAdapter:', pedido);
         return this.pedidoMapper.createPedido(pedido)
     }
 

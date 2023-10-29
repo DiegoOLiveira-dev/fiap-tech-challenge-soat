@@ -4,12 +4,11 @@ import { Pedido } from "../../domain/pedido";
 
 @Injectable()
 export class PedidoMapper {
-  constructor(private dataServices: IDataServices) {}
+  constructor(private dataServices: IDataServices) { }
 
-async createPedido(pedido: Pedido): Promise<Pedido> {
+  async createPedido(pedido: Pedido): Promise<Pedido> {
 
     try {
-      console.log('request-PedidoMapper:', pedido);
       const createdpedido = await this.dataServices.pedido.create(pedido);
       return createdpedido;
     } catch (error) {

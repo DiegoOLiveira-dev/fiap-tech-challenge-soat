@@ -19,7 +19,7 @@ import { Pedido, PedidoSchema } from './model/pedido-entity';
 
     ]),
     MongooseModule.forRoot('mongodb://admin:pass@mongo-dev:27017', { dbName: 'fiap' }),
-    //MongooseModule.forRoot('mongodb://admin:pass@localhost:27017/fiap',{authSource: "admin"}),
+    //MongooseModule.forRoot('mongodb://admin:pass@localhost:27017', { dbName: 'fiap' }),
 
   ],
   providers: [

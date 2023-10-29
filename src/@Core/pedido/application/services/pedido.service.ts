@@ -19,11 +19,8 @@ export class PedidoService implements PedidoUseCase {
                 produtos: command.produtos,
                 total: command.total,
             };
-            console.log('pedido-services:', pedido);
             await this.pedidoPersistencePort.persistPedido(pedido)
         } catch (error) {
-            console.log('error:', error);
-
             throw error;
         }
     }

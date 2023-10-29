@@ -100,13 +100,14 @@ var pedido = db.pedidos.insertMany([
 
     "id_cliente": "1",
     "nome_cliente": "1",
-    "produtos": [{
-      "product": "Milk-Shake",
-      "qtd": "2",
-      "preco_unitario": "18"
-    }],
+    "produtos": {
+      "name": "Milk-Shake",
+      "description": "Sorvete batido com leite",
+      "price": "18",
+      "image_url": "teste",
+      "category": categories.insertedIds[0]
+    },
     "total": "36",
-    "id_pedido": "1"
   }
 
 ])

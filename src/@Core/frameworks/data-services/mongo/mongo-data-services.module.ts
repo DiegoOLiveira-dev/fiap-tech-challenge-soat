@@ -8,7 +8,7 @@ import {
 } from '../mongo/model/product-entity';
 import { MongoDataServices } from './mongo-data-services.service';
 import { Category, CategorySchema } from './model/category-entity';
-import { Pedido, PedidoSchema} from './model/pedido-entity';
+import { Pedido, PedidoSchema } from './model/pedido-entity';
 
 @Module({
   imports: [
@@ -18,7 +18,9 @@ import { Pedido, PedidoSchema} from './model/pedido-entity';
       { name: Pedido.name, schema: PedidoSchema },
 
     ]),
-    MongooseModule.forRoot('mongodb://admin:pass@mongo-dev:27017', {dbName: 'fiap'}),
+    MongooseModule.forRoot('mongodb://admin:pass@mongo-dev:27017', { dbName: 'fiap' }),
+    //MongooseModule.forRoot('mongodb://admin:pass@localhost:27017/fiap',{authSource: "admin"}),
+
   ],
   providers: [
     {
@@ -28,4 +30,4 @@ import { Pedido, PedidoSchema} from './model/pedido-entity';
   ],
   exports: [IDataServices],
 })
-export class MongoDataServicesModule {}
+export class MongoDataServicesModule { }

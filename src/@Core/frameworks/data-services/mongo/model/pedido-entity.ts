@@ -6,8 +6,6 @@ export type PedidoDocument = HydratedDocument<Pedido>;
 
 @Schema()
 export class Pedido {
-    @Prop({unique: true})
-    id_pedido: string;
 
     @Prop()
     descricao_status: string;
@@ -18,7 +16,7 @@ export class Pedido {
     @Prop()
     nome_cliente: string;
 
-    //@Prop({type: mongoose.Schema.Types.ObjectId, ref: 'Product'},) //para poder fazer essa referencia e ja trazer o produto aqui vc precisa ter o id do produto e terazer o objeto inteiro como esta no banco.
+    //@Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Product' },) //para poder fazer essa referencia e ja trazer o produto aqui vc precisa ter o id do produto e terazer o objeto inteiro como esta no banco.
     produtos: Product[];
 
     @Prop()

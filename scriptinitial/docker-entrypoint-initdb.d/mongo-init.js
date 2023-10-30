@@ -17,7 +17,7 @@ db.createCollection('categories');
 db.createCollection('products');
 db.createCollection('pedidos');
 db.createCollection('statuspreparo');
-db.createCollection('client');
+db.createCollection('clients');
 
 //Inserindo infos na tabelas na tabelas
 var categories = db.categories.insertMany([
@@ -89,7 +89,7 @@ var statuspreparo = db.statuspreparo.insertMany([
   },
 ])
 
-var cliente = db.client.insertMany([
+var cliente = db.clients.insertMany([
   {
     "cpf_client": 21654473057,
     "name": "Ronaldo Nazário",
@@ -109,15 +109,7 @@ var pedido = db.pedidos.insertMany([
 
     "id_cliente": "1",
     "nome_cliente": "1",
-    "produtos": {
-      "name": "Milk-Shake",
-      "description": "Sorvete batido com leite",
-      "price": "18",
-      "image_url": "teste",
-      "category": categories.insertedIds[0],
-      "qtde": 1
-
-    },
+    "produtos": [products.insertedIds[0]],
     "total": "18",
   }
 

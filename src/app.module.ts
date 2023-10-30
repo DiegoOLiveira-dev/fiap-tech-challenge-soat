@@ -1,10 +1,13 @@
-import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { Module, forwardRef } from '@nestjs/common';
+import { ProductsModule } from './@Core/products/products.module';
+import { CategoriesModule } from './@Core/categories/categories.module';
+import { ClientsModule } from './@Core/clients/clients.module';
+import { PedidoModule } from './@Core/pedido/pedido.module';
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [forwardRef(() => ProductsModule),forwardRef(() => CategoriesModule), forwardRef(() =>  PedidoModule), forwardRef(() => ClientsModule)],
+  controllers: [],
+  providers: [],
+  exports: []
 })
 export class AppModule {}

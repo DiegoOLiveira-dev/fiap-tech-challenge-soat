@@ -30,8 +30,7 @@ export class MongoDataServices
     @InjectModel(Category.name)
     private CategoryRepository: Model<CategoryDocument>,
     @InjectModel(Client.name)
-    private ClientRepository: Model<ClientDocument>
-
+    private ClientRepository: Model<ClientDocument>,
     @InjectModel(Pedido.name)
     private PedidoRepository: Model<PedidoDocument>
   ) {

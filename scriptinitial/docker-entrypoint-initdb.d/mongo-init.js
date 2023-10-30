@@ -17,7 +17,7 @@ db.createCollection('categories');
 db.createCollection('products');
 db.createCollection('pedidos');
 db.createCollection('statuspreparo');
-db.createCollection('cliente');
+db.createCollection('client');
 
 //Inserindo infos na tabelas na tabelas
 var categories = db.categories.insertMany([
@@ -89,11 +89,16 @@ var statuspreparo = db.statuspreparo.insertMany([
   },
 ])
 
-var cliente = db.cliente.insertMany([
+var cliente = db.client.insertMany([
   {
-    "id_cliente": "1",
-    "nome": "Ronaldo Fenônmeno",
-    "email": "ronaldofenomeno@fake.com.br"
+    "cpf_client": 21654473057,
+    "name": "Ronaldo Nazário",
+    "email": "ronaldon@fake.com.br"
+  },
+  {
+    "cpf_client": 78279389067,
+    "name": "Cássio Ramos",
+    "email": "cassior@fake.com.br"
   }
 ])
 

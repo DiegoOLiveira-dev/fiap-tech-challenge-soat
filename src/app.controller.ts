@@ -62,7 +62,20 @@ export class AppController {
     ]
 
     const createdProducts = await this.dataServices.products.createMany(products);
-
+    
+    const clients = [
+      {
+        "cpf_client": 21654473057,
+        "name": "Ronaldo Nazário",
+        "email": "ronaldon@fake.com.br"
+      },
+      {
+        "cpf_client": 78279389067,
+        "name": "Cássio Ramos",
+        "email": "cassior@fake.com.br"
+      }
+    ]
+    await this.dataServices.clients.createMany(clients);
 
     return createdProducts;
   }

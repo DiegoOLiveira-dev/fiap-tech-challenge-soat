@@ -8,6 +8,7 @@ import {
 } from '../mongo/model/product-entity';
 import { MongoDataServices } from './mongo-data-services.service';
 import { Category, CategorySchema } from './model/category-entity';
+import { Client, ClientSchema } from './model/client-entity';
 import { Pedido, PedidoSchema } from './model/pedido-entity';
 
 @Module({
@@ -15,6 +16,7 @@ import { Pedido, PedidoSchema } from './model/pedido-entity';
     MongooseModule.forFeature([
       { name: Product.name, schema: ProductSchema },
       { name: Category.name, schema: CategorySchema },
+      { name: Client.name, schema: ClientSchema },
       { name: Pedido.name, schema: PedidoSchema },
 
     ]),

@@ -15,7 +15,7 @@ db.createUser(
 db = db.getSiblingDB('fiap');
 db.createCollection('categories');
 db.createCollection('products');
-db.createCollection('pedido');
+db.createCollection('pedidos');
 db.createCollection('statuspreparo');
 db.createCollection('client');
 
@@ -41,32 +41,36 @@ var products = db.products.insertMany([
     "description": "Sorvete batido com leite",
     "price": "18",
     "image_url": "teste",
-    "category": categories.insertedIds[0]
+    "category": categories.insertedIds[0],
+    "qtde": 1
   },
   {
     "name": "Batata Frita",
     "description": "batatas fritas em oleo",
     "price": "20",
     "image_url": "teste",
-    "category": categories.insertedIds[1]
+    "category": categories.insertedIds[1],
+    "qtde": 1
   },
   {
     "name": "Hamburguer",
     "description": "pao com carne",
     "price": "35",
     "image_url": "teste",
-    "category": categories.insertedIds[2]
+    "category": categories.insertedIds[2],
+    "qtde": 1
   },
   {
     "name": "Coca cola",
     "description": "bebida",
     "price": "10",
     "image_url": "teste",
-    "category": categories.insertedIds[3]
+    "category": categories.insertedIds[3],
+    "qtde": 1
   }
 ])
 
-var statuspreparo = db.status.insertMany([
+var statuspreparo = db.statuspreparo.insertMany([
   {
     "id_status": "1",
     "Descricao": "Recebido"
@@ -98,12 +102,24 @@ var cliente = db.client.insertMany([
   }
 ])
 
-var pedido = db.pedido.insertMany([
+var pedido = db.pedidos.insertMany([
   {
     "id_status": "1",
-    "cpf_client": "1",
-    "id_pedido": "1",
-    "name_produto": "Milk-Shake"
+    "descricao_status": "recebido",
+
+    "id_cliente": "1",
+    "nome_cliente": "1",
+    "produtos": {
+      "name": "Milk-Shake",
+      "description": "Sorvete batido com leite",
+      "price": "18",
+      "image_url": "teste",
+      "category": categories.insertedIds[0],
+      "qtde": 1
+
+    },
+    "total": "18",
   }
+
 ])
 

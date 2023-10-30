@@ -6,6 +6,7 @@ export class SaveProductCommand {
         readonly description: string,
         readonly price: string,
         readonly category: Category,
-        readonly image_url: string
-    ) {}
+        readonly image_url: string,
+        readonly qtde: number
+    ) { }
 }

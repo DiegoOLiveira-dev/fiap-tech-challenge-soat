@@ -6,7 +6,7 @@ export type ProductDocument = HydratedDocument<Product>;
 
 @Schema()
 export class Product {
-  @Prop({unique: true})
+  @Prop({ unique: true })
   name: string;
 
   @Prop()
@@ -18,8 +18,12 @@ export class Product {
   @Prop()
   image_url: string;
 
-  @Prop({type: mongoose.Schema.Types.ObjectId, ref: 'Category'},)
+  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Category' },)
   category: Category;
+
+  @Prop()
+  qtde: number;
+
 }
 
 export const ProductSchema = SchemaFactory.createForClass(Product);

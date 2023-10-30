@@ -6,7 +6,7 @@ import { SaveProductCommand } from "../ports/in/product.command";
 
 @Injectable()
 export class SaveProductService implements SaveProductUseCase {
-    constructor(private productPersistencePort: ProductPersistencePort){}
+    constructor(private productPersistencePort: ProductPersistencePort) { }
 
     async saveProduct(command: SaveProductCommand): Promise<void> {
         try {
@@ -15,7 +15,8 @@ export class SaveProductService implements SaveProductUseCase {
                 description: command.description,
                 category: command.category,
                 image_url: command.image_url,
-                price: command.price
+                price: command.price,
+                qtde: command.qtde
             };
             await this.productPersistencePort.persistProduct(product)
         } catch (error) {
@@ -25,13 +26,13 @@ export class SaveProductService implements SaveProductUseCase {
     }
 
     async getAllProducts(): Promise<Product[]> {
-        
-       return await this.productPersistencePort.getAllProducts()
+
+        return await this.productPersistencePort.getAllProducts()
 
     }
 
     async getProductsByCategory(id?: number): Promise<Product[]> {
-        const filter = {category: id}
+        const filter = { category: id }
         return await this.productPersistencePort.getProductsByCategory(filter)
     }
 

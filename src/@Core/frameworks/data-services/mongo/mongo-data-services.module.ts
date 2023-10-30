@@ -9,6 +9,7 @@ import {
 import { MongoDataServices } from './mongo-data-services.service';
 import { Category, CategorySchema } from './model/category-entity';
 import { Client, ClientSchema } from './model/client-entity';
+import { Pedido, PedidoSchema } from './model/pedido-entity';
 
 @Module({
   imports: [
@@ -16,8 +17,12 @@ import { Client, ClientSchema } from './model/client-entity';
       { name: Product.name, schema: ProductSchema },
       { name: Category.name, schema: CategorySchema },
       { name: Client.name, schema: ClientSchema },
+      { name: Pedido.name, schema: PedidoSchema },
+
     ]),
-    MongooseModule.forRoot('mongodb://admin:pass@mongo-dev:27017', {dbName: 'fiap'}),
+    MongooseModule.forRoot('mongodb://admin:pass@mongo-dev:27017', { dbName: 'fiap' }),
+    //MongooseModule.forRoot('mongodb://admin:pass@localhost:27017', { dbName: 'fiap' }),
+
   ],
   providers: [
     {
@@ -27,4 +32,4 @@ import { Client, ClientSchema } from './model/client-entity';
   ],
   exports: [IDataServices],
 })
-export class MongoDataServicesModule {}
+export class MongoDataServicesModule { }

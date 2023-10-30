@@ -12,6 +12,13 @@ services:
       - "27017:27017"
     volumes:
       - ./scriptinitial/docker-entrypoint-initdb.d/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    deploy:
+      resources:
+        limits:
+          memory: 1024M
+        reservations:
+          memory: 1024M
+
   mongo-express:
     container_name: mongo-express
     image: mongo-express
@@ -25,6 +32,13 @@ services:
       - ME_CONFIG_BASICAUTH_PASSWORD=pass
     ports:
       - "8081:8081"
+    deploy:
+      resources:
+        limits:
+          memory: 1024M
+        reservations:
+          memory: 1024M
+
   nest-service:
     build:
       context: .
@@ -42,6 +56,6 @@ services:
     deploy:
       resources:
         limits:
-          memory: 2048M
+          memory: 1024M
         reservations:
-          memory: 2048M
+          memory: 1024M

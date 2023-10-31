@@ -16,7 +16,6 @@ export class SaveProductService implements SaveProductUseCase {
                 category: command.category,
                 image_url: command.image_url,
                 price: command.price,
-                qtde: command.qtde
             };
             await this.productPersistencePort.persistProduct(product)
         } catch (error) {
@@ -43,4 +42,6 @@ export class SaveProductService implements SaveProductUseCase {
     async updateProductById(id: number, command: SaveProductCommand): Promise<Product> {
         return await this.productPersistencePort.updateProductById(id, command)
     }
+
+    
 }

@@ -7,6 +7,5 @@ export class SaveProductCommand {
         readonly price: string,
         readonly category: Category,
         readonly image_url: string,
-        readonly qtde: number
     ) { }
 }

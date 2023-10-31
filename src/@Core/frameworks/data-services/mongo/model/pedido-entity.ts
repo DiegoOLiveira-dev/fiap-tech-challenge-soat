@@ -1,6 +1,8 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import mongoose, { HydratedDocument } from 'mongoose';
 import { Product } from './product-entity';
+import { SelectedItems } from 'src/@Core/pedido/domain/pedido';
+import { Selected } from './selected';
 
 export type PedidoDocument = HydratedDocument<Pedido>;
 
@@ -16,8 +18,8 @@ export class Pedido {
     @Prop()
     nome_cliente: string;
 
-    @Prop([{ type: mongoose.Schema.Types.ObjectId, ref: 'Product' }])
-    produtos: Product[];
+    @Prop()
+    produtos: Selected[];
 
     @Prop()
     total: string;

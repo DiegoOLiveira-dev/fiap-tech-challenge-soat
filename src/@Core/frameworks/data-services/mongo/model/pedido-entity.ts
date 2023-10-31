@@ -22,7 +22,7 @@ export class Pedido {
     produtos: Selected[];
 
     @Prop()
-    total: string;
+    total: number;
 
     @Prop()
     id_status: string;

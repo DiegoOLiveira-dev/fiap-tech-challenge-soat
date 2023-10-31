@@ -25,13 +25,13 @@ export class PedidoController {
 
         const promises = request.produtos.map(async(item) => {
             let produto: any = await this.useCasePedido.getSelectedProduct({_id: item.produto})
-            total  = total + (Number(produto[0]._doc.price) * item.qtd)
+            total  = total + (produto[0]._doc.price * item.qtd)
         })
 
         await Promise.all(promises)
 
         req.total = total
-        const command: SavePedidoCommand = req.toCommand();
+        let command: SavePedidoCommand = req.toCommand();
 
 
         return this.useCasePedido.savePedido(command)

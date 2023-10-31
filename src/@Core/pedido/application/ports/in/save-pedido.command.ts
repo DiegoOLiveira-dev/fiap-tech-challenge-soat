@@ -9,6 +9,6 @@ export class SavePedidoCommand {
         readonly id_cliente: string,
         readonly nome_cliente: string,
         readonly produtos: SelectedItems[],
-        readonly total: string
+        readonly total?: number
     ) { }
 }

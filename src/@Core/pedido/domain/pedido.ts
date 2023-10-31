@@ -7,7 +7,7 @@ export class Pedido {
     id_cliente: string
     nome_cliente: string
     produtos: SelectedItems[]
-    total: string
+    total: number
 }
 
 export class SelectedItems {

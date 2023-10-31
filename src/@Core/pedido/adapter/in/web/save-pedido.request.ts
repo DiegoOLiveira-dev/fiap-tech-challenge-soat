@@ -3,6 +3,7 @@ import { Expose } from "class-transformer";
 import { IsNotEmpty } from "class-validator";
 import { SavePedidoCommand } from "../../../application/ports/in/save-pedido.command";
 import { SelectedItems } from "src/@Core/pedido/domain/pedido";
+import { Selected } from "src/@Core/frameworks/data-services/mongo/model/selected";
 
 export class SavePedidoRequest {
 
@@ -29,13 +30,12 @@ export class SavePedidoRequest {
 
     @Expose()
     @IsNotEmpty()
-    @ApiProperty({type: [SelectedItems]})
-    readonly produtos: SelectedItems[];
+    @ApiProperty({type: [Selected]})
+    readonly produtos: Selected[];
 
     @Expose()
-    @IsNotEmpty()
     @ApiProperty()
-    readonly total: string;
+    readonly total: number;
 
 
     toCommand(): SavePedidoCommand {

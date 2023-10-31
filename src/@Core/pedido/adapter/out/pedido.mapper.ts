@@ -1,6 +1,7 @@
 import { BadRequestException, HttpException, Injectable } from "@nestjs/common";
 import { IDataServices } from "../../../abstracts/data-services.abstract";
 import { Pedido } from "../../domain/pedido";
+import { Product } from "src/@Core/products/domain/Products";
 
 @Injectable()
 export class PedidoMapper {
@@ -19,5 +20,10 @@ export class PedidoMapper {
   async getAllPedido(): Promise<Pedido[]> {
     const allpedido = await this.dataServices.pedido.getAll()
     return allpedido
+  }
+
+  async getSelectedProduct(filter: any): Promise<Product[]> {
+    const selectedProduct = await this.dataServices.products.getByFilter(filter)
+    return selectedProduct
   }
 }

@@ -21,9 +21,6 @@ export class Product {
   @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Category' },)
   category: Category;
 
-  @Prop()
-  qtde: number;
-
 }
 
 export const ProductSchema = SchemaFactory.createForClass(Product);

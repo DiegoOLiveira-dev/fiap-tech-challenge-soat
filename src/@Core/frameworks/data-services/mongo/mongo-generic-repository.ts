@@ -3,9 +3,9 @@ import { IGenericRepository } from '../../../abstracts/generic-repository.abstra
 
 export class MongoGenericRepository<T> implements IGenericRepository<T> {
   private _repository: Model<T>;
-  private _populateOnFind: string[];
+  private _populateOnFind: any;
 
-  constructor(repository: Model<T>, populateOnFind: string[] = []) {
+  constructor(repository: Model<T>, populateOnFind?: any) {
     this._repository = repository;
     this._populateOnFind = populateOnFind;
   }

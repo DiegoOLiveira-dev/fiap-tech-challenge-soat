@@ -42,7 +42,6 @@ var products = db.products.insertMany([
     "price": "18",
     "image_url": "teste",
     "category": categories.insertedIds[0],
-    "qtde": 1
   },
   {
     "name": "Batata Frita",
@@ -50,7 +49,6 @@ var products = db.products.insertMany([
     "price": "20",
     "image_url": "teste",
     "category": categories.insertedIds[1],
-    "qtde": 1
   },
   {
     "name": "Hamburguer",
@@ -58,7 +56,6 @@ var products = db.products.insertMany([
     "price": "35",
     "image_url": "teste",
     "category": categories.insertedIds[2],
-    "qtde": 1
   },
   {
     "name": "Coca cola",
@@ -66,7 +63,6 @@ var products = db.products.insertMany([
     "price": "10",
     "image_url": "teste",
     "category": categories.insertedIds[3],
-    "qtde": 1
   }
 ])
 
@@ -109,7 +105,7 @@ var pedido = db.pedidos.insertMany([
 
     "id_cliente": "1",
     "nome_cliente": "1",
-    "produtos": [products.insertedIds[0]],
+    "produtos": [{qtd: 1, produto: products.insertedIds[0]}],
     "total": "18",
   }
 

@@ -3,6 +3,7 @@ import { Pedido } from "../../domain/pedido";
 import { PedidoUseCase } from "../ports/in/pedido.use-case";
 import { PedidoPersistencePort } from "../ports/out/pedido-persistente.port";
 import { SavePedidoCommand } from "../ports/in/save-pedido.command";
+import { Product } from "src/@Core/products/domain/Products";
 
 @Injectable()
 export class PedidoService implements PedidoUseCase {
@@ -10,6 +11,10 @@ export class PedidoService implements PedidoUseCase {
 
     async savePedido(command: SavePedidoCommand): Promise<void> {
         try {
+
+
+            
+
 
             const pedido: Pedido = {
                 id_status: command.id_status,
@@ -19,7 +24,7 @@ export class PedidoService implements PedidoUseCase {
                 produtos: command.produtos,
                 total: command.total,
             };
-            await this.pedidoPersistencePort.persistPedido(pedido)
+            return await this.pedidoPersistencePort.persistPedido(pedido)
         } catch (error) {
             throw error;
         }
@@ -28,6 +33,12 @@ export class PedidoService implements PedidoUseCase {
     async getAllPedidos(): Promise<Pedido[]> {
 
         return await this.pedidoPersistencePort.getAllPedido()
+
+    }
+
+    async getSelectedProduct(filter: any): Promise<Product[]> {
+
+        return await this.pedidoPersistencePort.getSelectedProduct(filter)
 
     }
 }

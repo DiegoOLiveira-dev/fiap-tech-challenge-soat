@@ -1,3 +1,4 @@
+import { SelectedItems } from "src/@Core/pedido/domain/pedido";
 import { Product } from "src/@Core/products/domain/Products";
 
 export class SavePedidoCommand {
@@ -7,7 +8,7 @@ export class SavePedidoCommand {
         readonly descricao_status: string,
         readonly id_cliente: string,
         readonly nome_cliente: string,
-        readonly produtos: Product[],
-        readonly total: string
+        readonly produtos: SelectedItems[],
+        readonly total?: number
     ) { }
 }

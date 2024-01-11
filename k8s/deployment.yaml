@@ -21,3 +21,12 @@ spec:
         image: diegodev1996/postechfiap  # Substitua pela sua imagem Node.js
         ports:
         - containerPort: 3000
+        resources:
+          requests:
+            cpu: "100m"
+        env:
+        - name: MONGO_URL
+          valueFrom:
+            configMapKeyRef:
+              name: node-configmap
+              key: mongo-db-url

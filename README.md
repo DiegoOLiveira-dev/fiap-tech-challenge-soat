@@ -48,4 +48,31 @@ $ docker-compose up
 
 Para acessar a base de dados do mongo basta acessar http://localhost:8081/ (user: admin, pass: pass), database fiap, na database estarao todas as collections com seus dados gerado numa carga inicial.
 
+## 6. Subindo projeto no K8s
+
+acessando a pasta k8s na raiz do projeto temos acesso aos arquivos de manifesto yaml e devemos aplicar eles na seguinte ordem: 
+
+Comando para aplicar o arquivo no cluster kubernets: 
+
+```bash
+$ kubectl apply -f path_do_arquivo
+```
+
+ordem: 
+
+1 - metrics.yaml
+2 - arquivos de configmap (db-configmap e node-configmap)
+3 - arquivos de deployments app e banco (db.yaml e deployment.yaml)
+4 - arquivos de services (db-service.yaml e service.yaml)
+5 - arquivos de hpa (scaler.yaml)
+
+com todos arquivos aplicados podemos consultar se os pods estao de pe: 
+
+```bash
+$  kubectl get pods
+```
+
+estando todos de pe podemos chamar via insomnia com a colection anexa.
+
+
 ## 6. Considerações finais

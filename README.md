@@ -62,8 +62,8 @@ ordem:
 
 1 - metrics.yaml
 2 - arquivos de configmap (db-configmap e node-configmap)
-3 - arquivos de deployments app e banco (db.yaml e deployment.yaml)
-4 - arquivos de services (db-service.yaml e service.yaml)
+3 - mogno (db.yaml e db-service.yaml)
+4 - node (deployment.yaml e service.yaml)
 5 - arquivos de hpa (scaler.yaml)
 
 com todos arquivos aplicados podemos consultar se os pods estao de pe: 

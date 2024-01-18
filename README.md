@@ -106,4 +106,7 @@ Pode levar um breve momento ate as taks subirem e o app de conectar ao banco, ac
 
 Apos tudo estar de pe, podemos realizar os testes via postman apontando para a nodePort exposta: http://localhost:31100/
 
-## 6. Considerações finais
+## 6. Desenho de arquitetura cloud
+
+<img src="./assets/POSTECH.drawio.png">
+

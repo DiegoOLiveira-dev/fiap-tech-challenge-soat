@@ -23,7 +23,9 @@ spec:
         - containerPort: 3000
         resources:
           requests:
-            cpu: "100m"
+            cpu: "0.1"
+          limits:
+            cpu: "0.2"
         env:
         - name: MONGO_URL
           valueFrom:

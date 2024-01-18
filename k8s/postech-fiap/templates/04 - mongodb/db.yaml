@@ -1,16 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mongodb-deployment
+  name: {{ include "postech-fiap.fullname" . }}-mongo
+  labels:
+    {{- include "postech-fiap.labels" . | nindent 4 }}-mongo
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mongodb
+      {{- include "postech-fiap.selectorLabels" . | nindent 6 }}
   template:
     metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
       labels:
-        app: mongodb
+        {{- include "postech-fiap.labels" . | nindent 8 }}-mongo
+        {{- with .Values.podLabels }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
     spec:
       containers:
       - name: mongodb
@@ -29,6 +38,11 @@ spec:
           mountPath: /data/db
         - name: "init-database"
           mountPath: "/docker-entrypoint-initdb.d/"
+        resources:
+          requests:
+            cpu: "0.1"
+          limits:
+            cpu: "0.2"
       volumes:
       - name: mongodb-data
       - name: "init-database"

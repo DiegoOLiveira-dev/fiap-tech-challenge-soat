@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-fiap
+  labels:
+    {{- include "postech-fiap.labels" . | nindent 4 }}
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "postech-fiap.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "postech-fiap.labels" . | nindent 8 }}
+        {{- with .Values.podLabels }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+    spec:
+      containers:
+      - name: node-app
+        #image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+        image: diegodev1996/postechfiap  # Substitua pela sua imagem Node.js
+        ports:
+        #- containerPort: 3000
+        - containerPort: {{ .Values.service.port }}
+        resources:
+          requests:
+            cpu: "0.1"
+          limits:
+            cpu: "0.2"
+        env:
+        - name: MONGO_URL
+          valueFrom:
+            configMapKeyRef:
+              name: node-configmap
+              key: mongo-db-url

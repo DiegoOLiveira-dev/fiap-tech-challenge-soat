@@ -75,4 +75,35 @@ $  kubectl get pods
 estando todos de pe podemos chamar via insomnia com a colection anexa.
 
 
+## 6. Subindo projeto no K8s com helm
+
+Requisitos: Docker, Helm e aplicar as configuracoes de metricas ao seu kubernets previamente (arquivo de metricas disponiveis em k8s/arquivos yaml individuais sem helm )
+
+acessando a pasta k8s na raiz do projeto temos acesso ao manifestfo helm postech-fiap 
+
+Comando para empacotar o manifesto para deploy no k8s 
+
+```bash
+$ helm package postech-fiap
+```
+
+Apos o comando sera gerado um pacote na pasta k8s que é o instalavel da nossa aplicacao completa para k8s
+
+Para instalar o pacote basta executar o seguinte comando estando na pasta k8s:
+
+```bash
+$  helm install postech-fiap-0.1.0.tgz --generate-name
+```
+
+Apos rodar o comando é so acompanhar a subida das taks pelo docker desktop ou rodando o comando:
+
+
+```bash
+$  kubectl get pods
+```
+
+Pode levar um breve momento ate as taks subirem e o app de conectar ao banco, acompanhar os logs via docker desktop
+
+Apos tudo estar de pe, podemos realizar os testes via postman apontando para a nodePort exposta: http://localhost:31100/
+
 ## 6. Considerações finais

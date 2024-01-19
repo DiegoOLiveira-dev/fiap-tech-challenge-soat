@@ -6,11 +6,20 @@ export class Pedido {
     descricao_status: string
     id_cliente: string
     nome_cliente: string
-    produtos: SelectedItems[]
+    produtos: SelectedItemsProdutos[]
     total: number
+    test: string
 }
 
-export class SelectedItems {
+export class SelectedItemsProdutos {
+    @ApiProperty()
+    qtd: number
+    @ApiProperty()
+    produto: Product
+}
+
+
+export class SelectedStatusPedido {
     @ApiProperty()
     qtd: number
     @ApiProperty()

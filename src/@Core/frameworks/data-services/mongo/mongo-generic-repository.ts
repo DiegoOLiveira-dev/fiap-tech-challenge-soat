@@ -25,13 +25,13 @@ export class MongoGenericRepository<T> implements IGenericRepository<T> {
   createMany(item: T[]): any {
     return this._repository.insertMany(item);
   }
-  
+
   deleteById(id: number): Promise<T> {
-      return this._repository.findByIdAndDelete(id).exec();
+    return this._repository.findByIdAndDelete(id).exec();
   }
 
   updateById(id: number, item: T): Promise<T> {
-      return this._repository.findByIdAndUpdate(id, item).exec();
+    return this._repository.findByIdAndUpdate(id, item).exec();
   }
 
 }

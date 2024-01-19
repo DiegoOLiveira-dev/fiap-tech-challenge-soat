@@ -39,23 +39,23 @@ services:
         reservations:
           memory: 1024M
 
-  nest-service:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: nest-docker-mongo
-    environment:
-      - PORT=${PORT}
-    ports:
-      - "3000:3000"
-    depends_on:
-      - mongodb
-      - mongo-express
-    volumes:
-      - .:/home/node/app
-    deploy:
-      resources:
-        limits:
-          memory: 1024M
-        reservations:
-          memory: 1024M
+  # nest-service:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   container_name: nest-docker-mongo
+  #   environment:
+  #     - PORT=${PORT}
+  #   ports:
+  #     - "3000:3000"
+  #   depends_on:
+  #     - mongodb
+  #     - mongo-express
+  #   volumes:
+  #     - .:/home/node/app
+  #   deploy:
+  #     resources:
+  #       limits:
+  #         memory: 1024M
+  #       reservations:
+  #         memory: 1024M

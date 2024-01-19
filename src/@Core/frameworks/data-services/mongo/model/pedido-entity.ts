@@ -1,7 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import mongoose, { HydratedDocument } from 'mongoose';
 import { Product } from './product-entity';
-import { SelectedItems } from 'src/@Core/pedido/domain/pedido';
+import { SelectedItemsProdutos } from 'src/@Core/pedido/domain/pedido';
 import { Selected } from './selected';
 
 export type PedidoDocument = HydratedDocument<Pedido>;
@@ -26,6 +26,9 @@ export class Pedido {
 
     @Prop()
     id_status: string;
+
+    @Prop()
+    test: string;
 }
 
 export const PedidoSchema = SchemaFactory.createForClass(Pedido);

@@ -12,10 +12,6 @@ export class PedidoService implements PedidoUseCase {
     async savePedido(command: SavePedidoCommand): Promise<void> {
         try {
 
-
-            
-
-
             const pedido: Pedido = {
                 id_status: command.id_status,
                 descricao_status: command.descricao_status,
@@ -23,6 +19,7 @@ export class PedidoService implements PedidoUseCase {
                 nome_cliente: command.nome_cliente,
                 produtos: command.produtos,
                 total: command.total,
+                test: command.test
             };
             return await this.pedidoPersistencePort.persistPedido(pedido)
         } catch (error) {

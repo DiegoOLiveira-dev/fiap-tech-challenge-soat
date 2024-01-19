@@ -16,7 +16,7 @@ db = db.getSiblingDB('fiap');
 db.createCollection('categories');
 db.createCollection('products');
 db.createCollection('pedidos');
-db.createCollection('statuspreparo');
+db.createCollection('statuspreparos');
 db.createCollection('clients');
 
 //Inserindo infos na tabelas na tabelas
@@ -66,7 +66,7 @@ var products = db.products.insertMany([
   }
 ])
 
-var statuspreparo = db.statuspreparo.insertMany([
+var statuspreparo = db.statuspreparos.insertMany([
   {
     "id_status": "1",
     "Descricao": "Recebido"

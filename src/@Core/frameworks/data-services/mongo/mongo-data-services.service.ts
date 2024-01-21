@@ -45,12 +45,18 @@ export class MongoDataServices
       this.StatusPreparoDocumentRepository
     );
     this.clients = new MongoGenericRepository<Client>(this.ClientRepository);
-    this.pedido = new MongoGenericRepository<Pedido>(this.PedidoRepository, {
+    this.pedido = new MongoGenericRepository<Pedido>(this.PedidoRepository, [{
       path: "produtos",
       populate: {
         path: "produto",
         model: "Product",
       },
-    });
+    }, {
+      path: "status_pedido",
+      populate: {
+        path: "status",
+        model: "StatusPreparo",
+      },
+    }]);
   }
 }

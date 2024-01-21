@@ -83,6 +83,10 @@ var statuspreparo = db.statuspreparos.insertMany([
     "id_status": "4",
     "Descricao": "retirado"
   },
+  {
+    "id_status": "5",
+    "Descricao": "Finalizado"
+  }
 ])
 
 var cliente = db.clients.insertMany([
@@ -119,6 +123,18 @@ var pedido = db.pedidos.insertMany([
     "status_pagamento": "Aprovado | Reprovado",
     "status_pedido": [{
       status: statuspreparo.insertedIds[0],
+      date: new Date().toString()
+    }, {
+      status: statuspreparo.insertedIds[1],
+      date: new Date().toString()
+    }, {
+      status: statuspreparo.insertedIds[2],
+      date: new Date().toString()
+    }, {
+      status: statuspreparo.insertedIds[3],
+      date: new Date().toString()
+    }, {
+      status: statuspreparo.insertedIds[4],
       date: new Date().toString()
     }],
     valor_total: "28"

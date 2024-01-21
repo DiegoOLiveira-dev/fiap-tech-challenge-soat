@@ -38,7 +38,7 @@ export class PedidoController {
         return this.useCasePedido.savePedido(command)
     }
 
-    @Get()
+    @Get("todos")
     @ApiTags('pedidos')
     async getAllProducts() {
         let pedidos = await this.useCasePedido.getAllPedidos();

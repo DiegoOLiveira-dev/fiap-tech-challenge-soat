@@ -13,13 +13,11 @@ export class PedidoService implements PedidoUseCase {
         try {
 
             const pedido: Pedido = {
-                id_status: command.id_status,
-                descricao_status: command.descricao_status,
                 id_cliente: command.id_cliente,
                 nome_cliente: command.nome_cliente,
                 produtos: command.produtos,
-                total: command.total,
-                test: command.test
+                status_pedido: command.status_pedido,
+                total: command.total
             };
             return await this.pedidoPersistencePort.persistPedido(pedido)
         } catch (error) {

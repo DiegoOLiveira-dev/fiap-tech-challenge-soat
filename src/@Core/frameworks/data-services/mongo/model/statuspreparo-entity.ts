@@ -7,7 +7,10 @@ export type StatusPreparoDocument = HydratedDocument<StatusPreparo>;
 export class StatusPreparo {
     @Prop({ unique: true })
     id_status: string;
+
+    @Prop()
     descricao: string;
+
 }
 
 export const StatusPreparoSchema = SchemaFactory.createForClass(StatusPreparo);

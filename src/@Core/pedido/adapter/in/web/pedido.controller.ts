@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, UsePipes, ValidationPipe } from '@nestjs/common';
+import { Body, Controller, Get, Patch, Post, UsePipes, ValidationPipe } from '@nestjs/common';
 import { ApiBody, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { PedidoUseCase } from 'src/@Core/pedido/application/ports/in/pedido.use-case';
 import { SavePedidoRequest } from './save-pedido.request';
@@ -23,6 +23,12 @@ export class PedidoController {
         let command: SavePedidoCommand = req.toCommand();
         return this.useCasePedido.savePedido(command)
     }
+    @Patch()
+    @ApiTags('pedidos')
+    async updateStatus(@Body() request: any) {
+        let pedidoAtualizado = await this.useCasePedido.updateStatusPedido(request);
+        return pedidoAtualizado
+    }
 
     @Get("todos")
     @ApiTags('pedidos')
@@ -30,4 +36,6 @@ export class PedidoController {
         let pedidos = await this.useCasePedido.getAllPedidos();
         return pedidos
     }
+
+
 }

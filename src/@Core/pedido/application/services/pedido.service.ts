@@ -9,6 +9,16 @@ import { Product } from "src/@Core/products/domain/Products";
 @Injectable()
 export class PedidoService implements PedidoUseCase {
     constructor(private pedidoPersistencePort: PedidoPersistencePort) { }
+    
+    async updateStatusPedido(body: any): Promise<any> {
+
+        try {
+            
+            return await this.pedidoPersistencePort.updateStatus(body)
+        } catch (err) {
+            console.log(err)
+        }
+    }
 
     async savePedido(command: SavePedidoCommand): Promise<void> {
         try {
@@ -46,4 +56,6 @@ export class PedidoService implements PedidoUseCase {
         return await this.pedidoPersistencePort.getSelectedProduct(filter)
 
     }
+
+    
 }

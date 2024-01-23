@@ -9,7 +9,14 @@ export class MongoGenericRepository<T> implements IGenericRepository<T> {
     this._repository = repository;
     this._populateOnFind = populateOnFind;
   }
-
+  patchById(id: string, newStatus: T): Promise<T> {
+    return this._repository.findByIdAndUpdate(id, {
+      $push: {
+        "status_pedido": newStatus
+      }
+    }).exec()
+  }
+  
   getAll(): Promise<T[]> {
     return this._repository.find().populate(this._populateOnFind).exec();
   }
@@ -33,5 +40,6 @@ export class MongoGenericRepository<T> implements IGenericRepository<T> {
   updateById(id: number, item: T): Promise<T> {
     return this._repository.findByIdAndUpdate(id, item).exec();
   }
+  
 
 }

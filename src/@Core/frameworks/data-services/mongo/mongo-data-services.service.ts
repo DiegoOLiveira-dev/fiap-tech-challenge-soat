@@ -9,6 +9,8 @@ import { Client } from "src/@Core/clients/domain/Client";
 import { ClientDocument } from "./model/client-entity";
 
 import { Pedido, PedidoDocument } from "./model/pedido-entity";
+import { Payment } from "src/@Core/payment/domain/Payment";
+import { PaymentDocument } from "./model/payment-entity";
 
 @Injectable()
 export class MongoDataServices
@@ -18,7 +20,7 @@ export class MongoDataServices
   categories: MongoGenericRepository<Category>;
   clients: MongoGenericRepository<Client>;
   pedido: MongoGenericRepository<Pedido>;
-
+  payment: MongoGenericRepository<Payment>
   constructor(
     @InjectModel(Product.name)
     private ProductRepository: Model<ProductDocument>,
@@ -27,7 +29,9 @@ export class MongoDataServices
     @InjectModel(Client.name)
     private ClientRepository: Model<ClientDocument>,
     @InjectModel(Pedido.name)
-    private PedidoRepository: Model<PedidoDocument>
+    private PedidoRepository: Model<PedidoDocument>,
+    @InjectModel(Payment.name)
+    private PaymentRepository: Model<PaymentDocument>
   ) {}
 
   onApplicationBootstrap() {
@@ -46,5 +50,6 @@ export class MongoDataServices
         model: "Product",
       },
     });
+    this.payment = new MongoGenericRepository<Payment>(this.PaymentRepository)
   }
 }

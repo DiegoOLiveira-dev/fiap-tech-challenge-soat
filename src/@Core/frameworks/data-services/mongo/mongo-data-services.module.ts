@@ -11,20 +11,22 @@ import { Category, CategorySchema } from './model/category-entity';
 import { Client, ClientSchema } from './model/client-entity';
 import { Pedido, PedidoSchema } from './model/pedido-entity';
 import { ConfigModule } from '@nestjs/config';
+import { Payment, PaymentSchema } from './model/payment-entity';
 
 @Module({
   imports: [
-    ConfigModule.forRoot(),
+    // ConfigModule.forRoot(),
     MongooseModule.forFeature([
       { name: Product.name, schema: ProductSchema },
       { name: Category.name, schema: CategorySchema },
       { name: Client.name, schema: ClientSchema },
       { name: Pedido.name, schema: PedidoSchema },
+      { name: Payment.name, schema: PaymentSchema}
 
     ]),
-    MongooseModule.forRoot(process.env.MONGO_URL, { dbName: 'fiap' }),
+    // MongooseModule.forRoot('mongodb://admin:pass@mongo-dev:27017', { dbName: 'fiap' }),
     //MongooseModule.forRoot('mongodb://admin:pass@mongo-dev:27017', { dbName: 'fiap' }),
-    //MongooseModule.forRoot('mongodb://admin:pass@localhost:27017', { dbName: 'fiap' }),
+    MongooseModule.forRoot('mongodb://admin:pass@localhost:27017', { dbName: 'fiap' }),
 
   ],
   providers: [

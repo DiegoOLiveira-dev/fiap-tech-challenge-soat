@@ -18,6 +18,7 @@ db.createCollection('products');
 db.createCollection('pedidos');
 db.createCollection('statuspreparo');
 db.createCollection('clients');
+db.createCollection('payments');
 
 //Inserindo infos na tabelas na tabelas
 var categories = db.categories.insertMany([

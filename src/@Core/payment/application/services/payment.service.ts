@@ -15,7 +15,7 @@ export class SavePaymentService implements SavePaymentUseCase {
                 id_order: command.id_order,
                 status_payment: command.status_payment
             };
-            await this.paymentPersistencePort.persistPayment(payment)
+            return await this.paymentPersistencePort.persistPayment(payment)
         } catch (error) {
             throw error;
         }

@@ -8,7 +8,7 @@ export class PaymentPersistenceAdapter implements PaymentPersistencePort {
     constructor(private paymentMapper: PaymentMapper) {}
 
     async persistPayment(payment: Payment) {
-        return this.paymentMapper.createPayment(payment)
+        return await this.paymentMapper.createPayment(payment)
     }
 
     async getAllPayments(): Promise<Payment[]> {

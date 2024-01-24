@@ -23,21 +23,26 @@ db.createCollection('payments');
 //Inserindo infos na tabelas na tabelas
 var categories = db.categories.insertMany([
   {
+    "_id": new ObjectId("65b07ad83e02c181c35ed542"),
     "description": "Sobremesa"
   },
   {
+    "_id": new ObjectId("65b07f2152d091c915af466e"),
     "description": "Acompanhamento"
   },
   {
+    "_id": new ObjectId("65b07f2152d091c915af466f"),
     "description": "Lanche"
   },
   {
+    "_id": new ObjectId("65b07f2152d091c915af4670"),
     "description": "Bebida"
   }
 ])
 
 var products = db.products.insertMany([
   {
+    "_id": new ObjectId("65b07f2152d091c915af4671"),
     "name": "Milk-Shake",
     "description": "Sorvete batido com leite",
     "price": "18",
@@ -45,6 +50,7 @@ var products = db.products.insertMany([
     "category": categories.insertedIds[0],
   },
   {
+    "_id": new ObjectId("65b07f2152d091c915af4672"),
     "name": "Batata Frita",
     "description": "batatas fritas em oleo",
     "price": "20",
@@ -52,6 +58,7 @@ var products = db.products.insertMany([
     "category": categories.insertedIds[1],
   },
   {
+    "_id": new ObjectId("65b07f2152d091c915af4673"),
     "name": "Hamburguer",
     "description": "pao com carne",
     "price": "35",
@@ -59,6 +66,7 @@ var products = db.products.insertMany([
     "category": categories.insertedIds[2],
   },
   {
+    "_id": new ObjectId("65b07f2152d091c915af4674"),
     "name": "Coca cola",
     "description": "bebida",
     "price": "10",
@@ -69,22 +77,27 @@ var products = db.products.insertMany([
 
 var statuspreparo = db.statuspreparos.insertMany([
   {
+    "_id": new ObjectId("65b02ea665520ae647add25e"),
     "id_status": "1",
     "Descricao": "Recebido"
   },
   {
+    "_id": new ObjectId("65b02ea665520ae647add25f"),
     "id_status": "2",
     "Descricao": "em preparo"
   },
   {
+    "_id": new ObjectId("65b02ea665520ae647add260"),
     "id_status": "3",
     "Descricao": "pronto"
   },
   {
+    "_id": new ObjectId("65b02ea665520ae647add261"),
     "id_status": "4",
     "Descricao": "retirado"
   },
   {
+    "_id": new ObjectId("65b02ea665520ae647add262"),
     "id_status": "5",
     "Descricao": "Finalizado"
   }

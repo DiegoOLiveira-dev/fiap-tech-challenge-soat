@@ -1,18 +1,27 @@
 import { ApiProperty } from "@nestjs/swagger"
+import { StatusPreparo } from "src/@Core/StatusPreparo/domain/StatusPreparo"
 import { Product } from "src/@Core/products/domain/Products"
 
 export class Pedido {
-    id_status: string
-    descricao_status: string
     id_cliente: string
     nome_cliente: string
-    produtos: SelectedItems[]
+    produtos: SelectedItemsProdutos[]
+    status_pedido: SelectedStatusPedido[]
     total: number
 }
 
-export class SelectedItems {
+export class SelectedItemsProdutos {
     @ApiProperty()
     qtd: number
     @ApiProperty()
     produto: Product
+}
+
+
+export class SelectedStatusPedido {
+    @ApiProperty()
+    status: StatusPreparo
+
+    @ApiProperty()
+    date: string
 }

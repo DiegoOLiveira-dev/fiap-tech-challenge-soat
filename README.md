@@ -48,4 +48,65 @@ $ docker-compose up
 
 Para acessar a base de dados do mongo basta acessar http://localhost:8081/ (user: admin, pass: pass), database fiap, na database estarao todas as collections com seus dados gerado numa carga inicial.
 
-## 6. Considerações finais
+## 6. Subindo projeto no K8s
+
+acessando a pasta k8s na raiz do projeto temos acesso aos arquivos de manifesto yaml e devemos aplicar eles na seguinte ordem: 
+
+Comando para aplicar o arquivo no cluster kubernets: 
+
+```bash
+$ kubectl apply -f path_do_arquivo
+```
+
+ordem: 
+
+1 - metrics.yaml
+2 - arquivos de configmap (db-configmap e node-configmap)
+3 - mogno (db.yaml e db-service.yaml)
+4 - node (deployment.yaml e service.yaml)
+5 - arquivos de hpa (scaler.yaml)
+
+com todos arquivos aplicados podemos consultar se os pods estao de pe: 
+
+```bash
+$  kubectl get pods
+```
+
+estando todos de pe podemos chamar via insomnia com a colection anexa.
+
+
+## 6. Subindo projeto no K8s com helm
+
+Requisitos: Docker, Helm e aplicar as configuracoes de metricas ao seu kubernets previamente (arquivo de metricas disponiveis em k8s/arquivos yaml individuais sem helm )
+
+acessando a pasta k8s na raiz do projeto temos acesso ao manifestfo helm postech-fiap 
+
+Comando para empacotar o manifesto para deploy no k8s 
+
+```bash
+$ helm package postech-fiap
+```
+
+Apos o comando sera gerado um pacote na pasta k8s que é o instalavel da nossa aplicacao completa para k8s
+
+Para instalar o pacote basta executar o seguinte comando estando na pasta k8s:
+
+```bash
+$  helm install postech-fiap-0.1.0.tgz --generate-name
+```
+
+Apos rodar o comando é so acompanhar a subida das taks pelo docker desktop ou rodando o comando:
+
+
+```bash
+$  kubectl get pods
+```
+
+Pode levar um breve momento ate as taks subirem e o app de conectar ao banco, acompanhar os logs via docker desktop
+
+Apos tudo estar de pe, podemos realizar os testes via postman apontando para a nodePort exposta: http://localhost:31100/
+
+## 6. Desenho de arquitetura cloud
+
+<img src="./assets/POSTECH.drawio.png">
+

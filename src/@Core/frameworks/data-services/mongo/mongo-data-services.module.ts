@@ -10,18 +10,23 @@ import { MongoDataServices } from './mongo-data-services.service';
 import { Category, CategorySchema } from './model/category-entity';
 import { Client, ClientSchema } from './model/client-entity';
 import { Pedido, PedidoSchema } from './model/pedido-entity';
+import { ConfigModule } from '@nestjs/config';
+import { Payment, PaymentSchema } from './model/payment-entity';
+import { StatusPreparo, StatusPreparoSchema } from './model/statuspreparo-entity';
 
 @Module({
   imports: [
+    // ConfigModule.forRoot(),
     MongooseModule.forFeature([
       { name: Product.name, schema: ProductSchema },
       { name: Category.name, schema: CategorySchema },
       { name: Client.name, schema: ClientSchema },
       { name: Pedido.name, schema: PedidoSchema },
-
+      { name: Payment.name, schema: PaymentSchema},
+      { name: StatusPreparo.name, schema: StatusPreparoSchema }
     ]),
-    MongooseModule.forRoot('mongodb://admin:pass@mongo-dev:27017', { dbName: 'fiap' }),
-    //MongooseModule.forRoot('mongodb://admin:pass@localhost:27017', { dbName: 'fiap' }),
+    //MongooseModule.forRoot('mongodb://admin:pass@mongo-dev:27017', { dbName: 'fiap' }),
+    MongooseModule.forRoot('mongodb://admin:pass@localhost:27017', { dbName: 'fiap' }),
 
   ],
   providers: [

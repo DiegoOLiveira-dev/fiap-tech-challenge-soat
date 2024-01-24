@@ -22,4 +22,20 @@ export class PaymentMapper {
     const allPayments = await this.dataServices.payment.getAll()
     return allPayments
   }
+
+  async getOrderById(id_order): Promise<Payment[]> {
+    const allPayments = await this.dataServices.payment.getByFilter(id_order)
+    return allPayments
+  }
+
+  async updateOrderById(id_order, status_payment): Promise<Payment> {
+    const status = await this.dataServices.payment.getByFilter({_id: id_order})
+    if(status[0].status_payment == 'true') {
+      console.log('pagamento realizado', status[0].status_payment)
+    } else {
+      status[0].status_payment = status_payment
+      const allPayments = await this.dataServices.payment.updateById(id_order, status[0])
+      return allPayments
+    }
+  }
 }

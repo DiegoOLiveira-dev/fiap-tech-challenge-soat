@@ -15,5 +15,13 @@ export class PaymentPersistenceAdapter implements PaymentPersistencePort {
         return await this.paymentMapper.getAllPayments()
 
     }
+    async getOrderById(filter: Record<string, any>): Promise<Payment[]> {
+        return await this.paymentMapper.getOrderById(filter)
+
+    }
+    async updateOrderById(id_order, status_payment): Promise<Payment> {
+        return await this.paymentMapper.updateOrderById(id_order, status_payment)
+
+    }
 
 }

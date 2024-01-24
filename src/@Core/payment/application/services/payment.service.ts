@@ -26,6 +26,17 @@ export class SavePaymentService implements SavePaymentUseCase {
         
        return await this.paymentPersistencePort.getAllPayments()
 
+    
     }
+    async getOrderById(id_order): Promise<Payment[]> {
+        const filter = {_id: id_order}
+        return await this.paymentPersistencePort.getOrderById(filter)
+
+    }
+
+    async updateOrderById(id_order, status_payment): Promise<Payment> {
+        return await this.paymentPersistencePort.updateOrderById(id_order, status_payment)
+    }
+
 
 }

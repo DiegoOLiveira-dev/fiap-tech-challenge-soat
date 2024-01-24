@@ -16,7 +16,7 @@ db = db.getSiblingDB('fiap');
 db.createCollection('categories');
 db.createCollection('products');
 db.createCollection('pedidos');
-db.createCollection('statuspreparo');
+db.createCollection('statuspreparos');
 db.createCollection('clients');
 db.createCollection('payments');
 
@@ -67,7 +67,7 @@ var products = db.products.insertMany([
   }
 ])
 
-var statuspreparo = db.statuspreparo.insertMany([
+var statuspreparo = db.statuspreparos.insertMany([
   {
     "id_status": "1",
     "Descricao": "Recebido"
@@ -84,6 +84,10 @@ var statuspreparo = db.statuspreparo.insertMany([
     "id_status": "4",
     "Descricao": "retirado"
   },
+  {
+    "id_status": "5",
+    "Descricao": "Finalizado"
+  }
 ])
 
 var cliente = db.clients.insertMany([
@@ -99,15 +103,42 @@ var cliente = db.clients.insertMany([
   }
 ])
 
+// var pedido = db.pedidos.insertMany([
+//   {
+//     "id_status": "1",
+//     "descricao_status": "recebido",
+
+//     "id_cliente": "1",
+//     "nome_cliente": "1",
+//     "produtos": [{qtd: 1, produto: products.insertedIds[0]}],
+//     "total": "18",
+//   }
+
+// ])
+
 var pedido = db.pedidos.insertMany([
   {
-    "id_status": "1",
-    "descricao_status": "recebido",
-
     "id_cliente": "1",
     "nome_cliente": "1",
-    "produtos": [{qtd: 1, produto: products.insertedIds[0]}],
-    "total": "18",
+    "produtos": [{ qtd: 1, produto: products.insertedIds[0] }, { qtd: 1, produto: products.insertedIds[1] }],
+    "status_pagamento": "Aprovado | Reprovado",
+    "status_pedido": [{
+      status: statuspreparo.insertedIds[0],
+      date: new Date().toString()
+    }, {
+      status: statuspreparo.insertedIds[1],
+      date: new Date().toString()
+    }, {
+      status: statuspreparo.insertedIds[2],
+      date: new Date().toString()
+    }, {
+      status: statuspreparo.insertedIds[3],
+      date: new Date().toString()
+    }, {
+      status: statuspreparo.insertedIds[4],
+      date: new Date().toString()
+    }],
+    valor_total: "28"
   }
 
 ])

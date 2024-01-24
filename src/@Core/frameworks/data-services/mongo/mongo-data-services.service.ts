@@ -11,16 +11,18 @@ import { ClientDocument } from "./model/client-entity";
 import { Pedido, PedidoDocument } from "./model/pedido-entity";
 import { Payment } from "src/@Core/payment/domain/Payment";
 import { PaymentDocument } from "./model/payment-entity";
+import { StatusPreparo, StatusPreparoDocument } from "./model/statuspreparo-entity";
 
 @Injectable()
 export class MongoDataServices
-  implements IDataServices, OnApplicationBootstrap
-{
+  implements IDataServices, OnApplicationBootstrap {
   products: MongoGenericRepository<Product>;
   categories: MongoGenericRepository<Category>;
   clients: MongoGenericRepository<Client>;
   pedido: MongoGenericRepository<Pedido>;
   payment: MongoGenericRepository<Payment>
+  statuspreparo: MongoGenericRepository<StatusPreparo>;
+
   constructor(
     @InjectModel(Product.name)
     private ProductRepository: Model<ProductDocument>,
@@ -31,7 +33,9 @@ export class MongoDataServices
     @InjectModel(Pedido.name)
     private PedidoRepository: Model<PedidoDocument>,
     @InjectModel(Payment.name)
-    private PaymentRepository: Model<PaymentDocument>
+    private PaymentRepository: Model<PaymentDocument>,
+    @InjectModel(StatusPreparo.name)
+    private StatusPreparoDocumentRepository: Model<StatusPreparoDocument>
   ) {}
 
   onApplicationBootstrap() {
@@ -42,14 +46,23 @@ export class MongoDataServices
     this.categories = new MongoGenericRepository<Category>(
       this.CategoryRepository
     );
+    this.statuspreparo = new MongoGenericRepository<StatusPreparo>(
+      this.StatusPreparoDocumentRepository
+    );
+    this.payment = new MongoGenericRepository<Payment>(this.PaymentRepository);
     this.clients = new MongoGenericRepository<Client>(this.ClientRepository);
-    this.pedido = new MongoGenericRepository<Pedido>(this.PedidoRepository, {
+    this.pedido = new MongoGenericRepository<Pedido>(this.PedidoRepository, [{
       path: "produtos",
       populate: {
         path: "produto",
         model: "Product",
       },
-    });
-    this.payment = new MongoGenericRepository<Payment>(this.PaymentRepository)
+    }, {
+      path: "status_pedido",
+      populate: {
+        path: "status",
+        model: "StatusPreparo",
+      },
+    }]);
   }
 }

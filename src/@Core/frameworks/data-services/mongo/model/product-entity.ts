@@ -15,7 +15,7 @@ export class Product {
   @Prop()
   price: string;
 
-  @Prop()
+  @Prop()   
   image_url: string;
 
   @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Category' },)

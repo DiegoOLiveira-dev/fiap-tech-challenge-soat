@@ -1,19 +1,20 @@
-import { Injectable } from "@nestjs/common";
+import { Injectable, Next } from "@nestjs/common";
 import { Pedido } from "../../domain/pedido";
 import { PedidoUseCase } from "../ports/in/pedido.use-case";
 import { PedidoPersistencePort } from "../ports/out/pedido-persistente.port";
 import { SavePedidoCommand } from "../ports/in/save-pedido.command";
 
 import { Product } from "src/@Core/products/domain/Products";
+import { map } from "rxjs";
 
 @Injectable()
 export class PedidoService implements PedidoUseCase {
     constructor(private pedidoPersistencePort: PedidoPersistencePort) { }
-    
+
     async updateStatusPedido(body: any): Promise<any> {
 
         try {
-            
+
             return await this.pedidoPersistencePort.updateStatus(body)
         } catch (err) {
             console.log(err)
@@ -47,7 +48,20 @@ export class PedidoService implements PedidoUseCase {
 
     async getAllPedidos(): Promise<Pedido[]> {
 
-        return await this.pedidoPersistencePort.getAllPedido()
+        let mapAllPedidos = await this.pedidoPersistencePort.getAllPedido();
+
+        mapAllPedidos.map(async (item) => {
+            item.status_pedido.forEach(item => {
+                if (item.status.id_status == "5") {
+                    console.log("remove")
+                    delete item.status
+                    delete item.date
+                }
+
+            })
+
+        })
+        return mapAllPedidos;
 
     }
 
@@ -57,5 +71,5 @@ export class PedidoService implements PedidoUseCase {
 
     }
 
-    
+
 }

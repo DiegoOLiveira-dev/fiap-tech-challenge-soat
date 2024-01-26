@@ -26,4 +26,9 @@ export class PedidoMapper {
     const selectedProduct = await this.dataServices.products.getByFilter(filter)
     return selectedProduct
   }
+
+  async getSelectedOrder(filter: any): Promise<Pedido[]> {
+    const selectedOrder = await this.dataServices.pedido.getByFilter(filter)
+    return selectedOrder
+  }
 }

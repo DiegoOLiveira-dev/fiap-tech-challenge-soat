@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Patch, Post, UsePipes, ValidationPipe } from '@nestjs/common';
+import { Body, Controller, Get, Param, Patch, Post, Query, UsePipes, ValidationPipe } from '@nestjs/common';
 import { ApiBody, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { PedidoUseCase } from 'src/@Core/pedido/application/ports/in/pedido.use-case';
 import { SavePedidoRequest } from './save-pedido.request';
@@ -30,11 +30,18 @@ export class PedidoController {
         return pedidoAtualizado
     }
 
-    @Get("todos")
+    @Get()
     @ApiTags('pedidos')
     async getAllProducts() {
         let pedidos = await this.useCasePedido.getAllPedidos();
         return pedidos
+    }
+
+    @Get(":id")
+    @ApiTags('pedidos')
+    async getSpecificOrder(@Param('id') id: string) {
+        let pedido = await this.useCasePedido.getSelectedOrder({ _id: id });
+        return pedido
     }
 
 

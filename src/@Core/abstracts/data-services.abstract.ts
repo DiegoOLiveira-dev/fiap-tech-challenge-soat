@@ -1,9 +1,9 @@
-import { Product } from '../../@Core/products/domain/Products';
+import { Product } from '../products/core/entity/Products';
 import { Category } from '../categories_new/core/Category';
 import { Client } from '../clients/core/entity/Client';
-import { Payment } from '../payment/domain/Payment';
+import { Payment } from '../payment/core/entity/Payment';
 import { StatusPreparo } from '../StatusPreparo/domain/StatusPreparo';
-import { Pedido } from '../pedido/domain/pedido';
+import { Pedido } from '../pedido/core/entity/pedido';
 import { IGenericRepository } from './generic-repository.abstract';
 
 export abstract class IDataServices {

@@ -1,8 +1,8 @@
 import { Module, forwardRef } from "@nestjs/common";
-import { ServicesOut } from "./out";
-import { ApplicationModule } from "../application/application.module";
+import { ServicesOut } from ".";
+import { ApplicationModule } from "../core/core.module";
 import { MongoDataServicesModule } from "src/@Core/frameworks/data-services/mongo/mongo-data-services.module";
-import { SavePaymentController } from "./in/web/payment.controller";
+import { SavePaymentController } from "./controllers/payment.controller";
 import { HttpModule } from "@nestjs/axios";
 
 @Module({

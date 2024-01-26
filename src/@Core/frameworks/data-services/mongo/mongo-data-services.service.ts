@@ -9,7 +9,7 @@ import { Client } from "src/@Core/clients/core/entity/Client";
 import { ClientDocument } from "./model/client-entity";
 
 import { Pedido, PedidoDocument } from "./model/pedido-entity";
-import { Payment } from "src/@Core/payment/domain/Payment";
+import { Payment } from "src/@Core/payment/core/entity/Payment";
 import { PaymentDocument } from "./model/payment-entity";
 import { StatusPreparo, StatusPreparoDocument } from "./model/statuspreparo-entity";
 

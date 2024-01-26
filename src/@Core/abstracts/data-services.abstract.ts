@@ -1,6 +1,6 @@
 import { Product } from '../../@Core/products/domain/Products';
-import { Category } from '../categories/domain/Category';
-import { Client } from '../clients/domain/Client';
+import { Category } from '../categories_new/core/Category';
+import { Client } from '../clients/core/entity/Client';
 import { Payment } from '../payment/domain/Payment';
 import { StatusPreparo } from '../StatusPreparo/domain/StatusPreparo';
 import { Pedido } from '../pedido/domain/pedido';

@@ -5,7 +5,7 @@ import { IDataServices } from "../../../abstracts/data-services.abstract";
 import { MongoGenericRepository } from "./mongo-generic-repository";
 import { Product, ProductDocument } from "./model/product-entity";
 import { Category, CategoryDocument } from "./model/category-entity";
-import { Client } from "src/@Core/clients/domain/Client";
+import { Client } from "src/@Core/clients/core/entity/Client";
 import { ClientDocument } from "./model/client-entity";
 
 import { Pedido, PedidoDocument } from "./model/pedido-entity";

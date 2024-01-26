@@ -1,4 +1,4 @@
-import { Category } from "src/@Core/categories/domain/Category";
+import { Category } from "../../../../categories_new/core/Category";
 
 export class SaveProductCommand {
     constructor(

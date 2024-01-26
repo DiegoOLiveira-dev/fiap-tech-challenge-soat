@@ -3,7 +3,7 @@ import { AdapterModule } from './adapter/adapter.module';
 import { ApplicationModule } from './core/core.module';
 
 @Module({
-  imports: [AdapterModule, ApplicationModule],
+  imports: [AdapterModule,ApplicationModule],
 
 })
-export class ClientsModule {}
+export class CategoriesNewModule {}

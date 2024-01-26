@@ -7,6 +7,7 @@ export abstract class PedidoUseCase {
     abstract savePedido(command: SavePedidoCommand): Promise<any>
     abstract getAllPedidos(): Promise<Pedido[]>
     abstract getSelectedProduct(filter: any): Promise<Product[]>
+    abstract getSelectedOrder(filter: any): Promise<Pedido[]>
     abstract updateStatusPedido(body: any): Promise<any>
 
 }

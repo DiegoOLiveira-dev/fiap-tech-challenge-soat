@@ -8,7 +8,12 @@ import { IDataServices } from "src/@Core/abstracts";
 @Injectable()
 export class PedidoPersistenceAdapter implements PedidoPersistencePort {
     constructor(private pedidoMapper: PedidoMapper, private dataServices: IDataServices) { }
-    
+
+    async getSelectedOrder(filter: any): Promise<Pedido[]> {
+        return this.pedidoMapper.getSelectedOrder(filter)
+    }
+
+
     updateStatus(body: any): Promise<any> {
         const id_pedido = body.id_pedido
         const new_status = body.newStatus
@@ -16,7 +21,7 @@ export class PedidoPersistenceAdapter implements PedidoPersistencePort {
         return this.dataServices.pedido.patchById(id_pedido, new_status)
 
     }
-    
+
     async getSelectedProduct(filter: any): Promise<Product[]> {
         return await this.pedidoMapper.getSelectedProduct(filter)
     }
@@ -27,9 +32,9 @@ export class PedidoPersistenceAdapter implements PedidoPersistencePort {
 
     async getAllPedido(): Promise<Pedido[]> {
         return await this.pedidoMapper.getAllPedido()
-
     }
 
-    
+
+
 
 }

@@ -10,6 +10,19 @@ import { map } from "rxjs";
 @Injectable()
 export class PedidoService implements PedidoUseCase {
     constructor(private pedidoPersistencePort: PedidoPersistencePort) { }
+    async getSelectedProduct(filter: any): Promise<Product[]> {
+        throw new Error("Method not implemented.");
+    }
+    async getSelectedOrder(filter: any): Promise<Pedido[]> {
+        try {
+
+            return await this.pedidoPersistencePort.getSelectedOrder(filter)
+
+        } catch (err) {
+            console.log(err)
+        }
+
+    }
 
     async updateStatusPedido(body: any): Promise<any> {
 
@@ -50,26 +63,22 @@ export class PedidoService implements PedidoUseCase {
 
         let mapAllPedidos = await this.pedidoPersistencePort.getAllPedido();
 
-        mapAllPedidos.map(async (item) => {
-            item.status_pedido.forEach(item => {
-                if (item.status.id_status == "5") {
-                    console.log("remove")
-                    delete item.status
-                    delete item.date
-                }
+        // mapAllPedidos.map(async (item) => {
+        //     item.status_pedido.forEach(item => {
+        //         if (item.status.id_status == "5") {
+        //             console.log("remove")
+        //             delete item.status
+        //             delete item.date
+        //         }
 
-            })
+        //     })
 
-        })
+        // })
         return mapAllPedidos;
 
     }
 
-    async getSelectedProduct(filter: any): Promise<Product[]> {
 
-        return await this.pedidoPersistencePort.getSelectedProduct(filter)
-
-    }
 
 
 }

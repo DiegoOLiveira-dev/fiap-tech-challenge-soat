@@ -1,5 +1,5 @@
 import { Product } from '../products/core/entity/Products';
-import { Category } from '../categories_new/core/Category';
+import { Category } from '../categories/core/Category';
 import { Client } from '../clients/core/entity/Client';
 import { Payment } from '../payment/core/entity/Payment';
 import { StatusPreparo } from '../statuspreparo/core/entity/StatusPreparo';

@@ -1,4 +1,4 @@
-import { StatusPreparo } from "src/@Core/StatusPreparo/domain/StatusPreparo";
+import { StatusPreparo } from "src/@Core/statuspreparo/core/entity/StatusPreparo";
 
 export abstract class StatusPreparoPersistencePort {
     //abstract persistStatusPreparo(statuspreparo: StatusPreparo): Promise<any>

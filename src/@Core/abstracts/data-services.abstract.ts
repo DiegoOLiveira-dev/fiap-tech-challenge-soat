@@ -2,7 +2,7 @@ import { Product } from '../products/core/entity/Products';
 import { Category } from '../categories_new/core/Category';
 import { Client } from '../clients/core/entity/Client';
 import { Payment } from '../payment/core/entity/Payment';
-import { StatusPreparo } from '../StatusPreparo/domain/StatusPreparo';
+import { StatusPreparo } from '../statuspreparo/core/entity/StatusPreparo';
 import { Pedido } from '../pedido/core/entity/pedido';
 import { IGenericRepository } from './generic-repository.abstract';
 

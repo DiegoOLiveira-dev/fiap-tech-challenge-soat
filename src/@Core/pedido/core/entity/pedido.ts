@@ -1,5 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger"
-import { StatusPreparo } from "src/@Core/StatusPreparo/domain/StatusPreparo"
+import { StatusPreparo } from "src/@Core/statuspreparo/core/entity/StatusPreparo"
 import { Product } from "src/@Core/products/core/entity/Products"
 
 export class Pedido {

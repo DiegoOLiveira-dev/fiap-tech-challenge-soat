@@ -1,6 +1,6 @@
 import { Body, Controller, Delete, Get, HttpStatus, Param, Patch, Post, Query, Res, UsePipes, ValidationPipe } from "@nestjs/common";
-import { SaveStatusPreparoUseCase } from "../../../application/ports/in/statuspreparo.use-case";
 import { ApiBody, ApiResponse, ApiTags } from "@nestjs/swagger";
+import { SaveStatusPreparoUseCase } from "../../core/usecases/statuspreparo.use-case";
 //import { UpdateStatusPreparoRequest } from "./update-StatusPreparo.request";
 
 @Controller('StatusPreparo')

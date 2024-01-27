@@ -34,7 +34,7 @@ export class SavePedidoUseCase {
             const pedido_created = await this.pedidoPersistencePort.persistPedido(pedido)
             const ordem_pagamento = await this.savePaymentUseCase.savePayment({id_client: command.id_cliente, id_order: pedido_created._id, status_payment: 'false'})
 
-            return pedido
+            return pedido_created
         } catch (error) {
             throw error;
         }

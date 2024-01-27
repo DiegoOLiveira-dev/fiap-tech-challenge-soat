@@ -20,8 +20,11 @@ export class GetPedidoUseCase {
 
         const filteredPedidos = pedidos.filter((pedido: any) => {
             const lastStatus = pedido.status_pedido[pedido.status_pedido.length - 1]?.status;
-            return lastStatus && lastStatus._doc.Descricao !== 'finalizado';
+            console.log(lastStatus && lastStatus._doc.Descricao !== 'Finalizado')
+            return lastStatus && lastStatus._doc.Descricao !== 'Finalizado';
         });
+
+        console.log(filteredPedidos)
 
         const sort = filteredPedidos.sort((a: any, b: any) => {
             // Ordena por status

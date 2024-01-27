@@ -38,7 +38,7 @@ export class PedidoController {
         return pedidoAtualizado
     }
 
-    @Get("todos")
+    @Get()
     @ApiTags('pedidos')
     async getAllProducts() {
         let pedidos = await this.getPedidoUseCase.getAllPedidos();

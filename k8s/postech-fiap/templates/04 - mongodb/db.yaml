@@ -40,9 +40,9 @@ spec:
           mountPath: "/docker-entrypoint-initdb.d/"
         resources:
           requests:
-            cpu: "0.1"
+            cpu: "0.5"
           limits:
-            cpu: "0.2"
+            cpu: "0.8"
       volumes:
       - name: mongodb-data
       - name: "init-database"

@@ -25,8 +25,9 @@ import { StatusPreparo, StatusPreparoSchema } from './model/statuspreparo-entity
       { name: Payment.name, schema: PaymentSchema},
       { name: StatusPreparo.name, schema: StatusPreparoSchema }
     ]),
+    MongooseModule.forRoot(process.env.MONGO_URL, { dbName: 'fiap' }),
     //MongooseModule.forRoot('mongodb://admin:pass@mongo-dev:27017', { dbName: 'fiap' }),
-    MongooseModule.forRoot('mongodb://admin:pass@localhost:27017', { dbName: 'fiap' }),
+    //MongooseModule.forRoot('mongodb://admin:pass@localhost:27017', { dbName: 'fiap' }),
 
   ],
   providers: [

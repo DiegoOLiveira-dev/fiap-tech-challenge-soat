@@ -32,9 +32,9 @@ spec:
         - containerPort: {{ .Values.service.port }}
         resources:
           requests:
-            cpu: "0.1"
+            cpu: "0.8"
           limits:
-            cpu: "0.2"
+            cpu: "1.2"
         env:
         - name: MONGO_URL
           valueFrom:

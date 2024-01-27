@@ -77,19 +77,9 @@ var products = db.products.insertMany([
 
 var statuspreparo = db.statuspreparos.insertMany([
   {
-    "_id": new ObjectId("65b02ea665520ae647add262"),
-    "id_status": "5",
-    "Descricao": "Finalizado"
-  },
-  {
-    "_id": new ObjectId("65b02ea665520ae647add261"),
-    "id_status": "4",
-    "Descricao": "retirado"
-  },
-  {
-    "_id": new ObjectId("65b02ea665520ae647add260"),
-    "id_status": "3",
-    "Descricao": "pronto"
+    "_id": new ObjectId("65b02ea665520ae647add25e"),
+    "id_status": "1",
+    "Descricao": "Recebido"
   },
   {
     "_id": new ObjectId("65b02ea665520ae647add25f"),
@@ -97,10 +87,20 @@ var statuspreparo = db.statuspreparos.insertMany([
     "Descricao": "em preparo"
   },
   {
-    "_id": new ObjectId("65b02ea665520ae647add25e"),
-    "id_status": "1",
-    "Descricao": "Recebido"
-  }
+    "_id": new ObjectId("65b02ea665520ae647add260"),
+    "id_status": "3",
+    "Descricao": "pronto"
+  },
+  {
+    "_id": new ObjectId("65b02ea665520ae647add261"),
+    "id_status": "4",
+    "Descricao": "retirado"
+  },
+  {
+    "_id": new ObjectId("65b02ea665520ae647add262"),
+    "id_status": "5",
+    "Descricao": "Finalizado"
+  },
 ])
 
 var cliente = db.clients.insertMany([

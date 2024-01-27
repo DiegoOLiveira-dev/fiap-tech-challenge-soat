@@ -22,9 +22,13 @@ Prover um sistema de autoatendimento de uma lachonete.
 
 ## 2. Métodos Utilizados
 
-[Miro](https://miro.com/app/board/uXjVMlKvwf0=/)
+[Miro - Event Storming](https://miro.com/app/board/uXjVMlKvwf0=/)
 
-[Notion](https://www.notion.so/d473ae027b1140c6915ba85c0e87dcbc?v=66a8f70c96af43418355a530584d995d)
+[Notion - Documentacao DDD](https://www.notion.so/d473ae027b1140c6915ba85c0e87dcbc?v=66a8f70c96af43418355a530584d995d)
+
+[GitHub] (https://github.com/DiegoOLiveira-dev/fiap-tech-challenge-soat/tree/develop)
+
+[Postman] (https://api.postman.com/collections/30844984-1e95ea06-fa0a-4682-a648-9d8782ec20a3?access_key=PMAT-01HN69M2ZC6YMQHJ9DC2E1ZYG7)
 
 [NestJS](https://docs.nestjs.com/)
 

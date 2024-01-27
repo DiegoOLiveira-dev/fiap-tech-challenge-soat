@@ -18,11 +18,17 @@ export class GetPedidoUseCase {
 
         const pedidos = await this.pedidoPersistencePort.getAllPedido()
 
-        const sort = pedidos.sort((a: any, b: any) => {
+        const filteredPedidos = pedidos.filter((pedido: any) => {
+            const lastStatus = pedido.status_pedido[pedido.status_pedido.length - 1]?.status;
+            return lastStatus && lastStatus._doc.Descricao !== 'finalizado';
+        });
+
+        const sort = filteredPedidos.sort((a: any, b: any) => {
             // Ordena por status
-            const statusA = a.status_pedido[a.status_pedido.length -1].status; // Supõe que o status desejado está na primeira posição
-            const statusB = b.status_pedido[a.status_pedido.length -1].status; // Supõe que o status desejado está na primeira posição
-            const statusComparison = statusOrder[statusA._doc.Descricao] - statusOrder[statusB._doc.Descricao];
+            
+            const statusA = a.status_pedido[a.status_pedido.length -1]?.status; // Supõe que o status desejado está na primeira posição
+            const statusB = b.status_pedido[a.status_pedido.length -1]?.status; // Supõe que o status desejado está na primeira posição
+            const statusComparison = statusOrder[statusA?._doc.Descricao] - statusOrder[statusB?._doc.Descricao];
         
             if (statusComparison !== 0) {
                 return statusComparison;

@@ -3,13 +3,14 @@ import { Pedido } from "../entity/pedido";
 import { PedidoPersistencePort } from "../../base/interfaces/pedido-persistente.port";
 import { SavePedidoCommand } from "../../base/interfaces/save-pedido.command";
 import { GetSelectedProductUseCase } from "./get-selected-product.use-case";
+import { SavePaymentUseCase } from "src/@Core/payment/core/usecases/save-payment.use-case";
 
 
 @Injectable()
 export class SavePedidoUseCase {
-    constructor(private pedidoPersistencePort: PedidoPersistencePort, private getSelected: GetSelectedProductUseCase) { }
+    constructor(private pedidoPersistencePort: PedidoPersistencePort, private getSelected: GetSelectedProductUseCase, private savePaymentUseCase: SavePaymentUseCase) { }
 
-    async savePedido(command: SavePedidoCommand): Promise<void> {
+    async savePedido(command: SavePedidoCommand): Promise<any> {
         try {
 
             let total: number = 0;
@@ -29,7 +30,11 @@ export class SavePedidoUseCase {
                 date_order: command.date_order,
                 total: total
             };
-            return await this.pedidoPersistencePort.persistPedido(pedido)
+            
+            const pedido_created = await this.pedidoPersistencePort.persistPedido(pedido)
+            const ordem_pagamento = await this.savePaymentUseCase.savePayment({id_client: command.id_cliente, id_order: pedido_created._id, status_payment: 'false'})
+
+            return pedido
         } catch (error) {
             throw error;
         }

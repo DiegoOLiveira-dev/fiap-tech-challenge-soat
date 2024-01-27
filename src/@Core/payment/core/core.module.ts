@@ -12,4 +12,4 @@ import { UpdatePaymentUseCase } from "./usecases/update-payment.use-case";
     providers: [GetPaymentByIdUseCase, GetPaymentUseCase, SavePaymentUseCase, UpdatePaymentUseCase],
     exports: [GetPaymentByIdUseCase, GetPaymentUseCase, SavePaymentUseCase, UpdatePaymentUseCase],
 })
-export class ApplicationModule {}
+export class PaymentApplicationModule {}

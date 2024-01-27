@@ -16,9 +16,9 @@ export class MongoGenericRepository<T> implements IGenericRepository<T> {
       }
     }).exec()
   }
-  
+
   getAll(): Promise<T[]> {
-    return this._repository.find().populate(this._populateOnFind).exec();
+    return this._repository.find().populate(this._populateOnFind).sort({ date_order: 1 }).exec();
   }
 
   getByFilter(filter: Record<string, any>): Promise<T[]> {
@@ -40,6 +40,6 @@ export class MongoGenericRepository<T> implements IGenericRepository<T> {
   updateById(id: number, item: T): Promise<T> {
     return this._repository.findByIdAndUpdate(id, item).exec();
   }
-  
+
 
 }

@@ -7,6 +7,7 @@ export class SavePedidoCommand {
         readonly nome_cliente: string,
         readonly produtos: SelectedItemsProdutos[],
         readonly status_pedido: SelectedStatusPedido[],
+        readonly date_order: string,
         readonly total?: number
     ) { }
 }

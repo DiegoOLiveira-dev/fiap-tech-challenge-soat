@@ -7,6 +7,7 @@ export class Pedido {
     nome_cliente: string
     produtos: SelectedItemsProdutos[]
     status_pedido: SelectedStatusPedido[]
+    date_order: string
     total: number
 }
 

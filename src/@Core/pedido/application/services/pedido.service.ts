@@ -11,7 +11,7 @@ import { map } from "rxjs";
 export class PedidoService implements PedidoUseCase {
     constructor(private pedidoPersistencePort: PedidoPersistencePort) { }
     async getSelectedProduct(filter: any): Promise<Product[]> {
-        throw new Error("Method not implemented.");
+        return await this.pedidoPersistencePort.getSelectedProduct(filter)
     }
     async getSelectedOrder(filter: any): Promise<Pedido[]> {
         try {
@@ -51,6 +51,7 @@ export class PedidoService implements PedidoUseCase {
                 nome_cliente: command.nome_cliente,
                 produtos: command.produtos,
                 status_pedido: command.status_pedido,
+                date_order: command.date_order,
                 total: total
             };
             return await this.pedidoPersistencePort.persistPedido(pedido)

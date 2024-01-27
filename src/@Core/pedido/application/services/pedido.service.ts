@@ -71,39 +71,25 @@ export class PedidoService implements PedidoUseCase {
             if (arrStatus._doc.Descricao != "Finalizado") {
                 mlistTemp.push(element)
             }
-            //mOrderYetProcess.push(await this.getstatuspronto(mlistTemp))
         });
 
-        mlistTemp.map(async (element) => {
-            let arrStatus: any = element.status_pedido[0].status
-            if (arrStatus._doc.Descricao == "pronto") {
-                mOrderYetProcess.push(element)
-            }
-            //mOrderYetProcess.push(await this.getstatuspronto(mlistTemp))
-        });
-
-        mlistTemp.map(async (element) => {
-            let arrStatus: any = element.status_pedido[0].status
-            if (arrStatus._doc.Descricao == "em preparo") {
-                mOrderYetProcess.push(element)
-            }
-            //mOrderYetProcess.push(await this.getstatuspronto(mlistTemp))
-        });
-
-        mlistTemp.map(async (element) => {
-            let arrStatus: any = element.status_pedido[0].status
-            if (arrStatus._doc.Descricao == "Recebido") {
-                mOrderYetProcess.push(element)
-            }
-            //mOrderYetProcess.push(await this.getstatuspronto(mlistTemp))
-        });
+        mOrderYetProcess.push(await this.listorderingforstatus(mlistTemp, "pronto"))
+        mOrderYetProcess.push(await this.listorderingforstatus(mlistTemp, "em preparo"))
+        mOrderYetProcess.push(await this.listorderingforstatus(mlistTemp, "Recebido"))
 
         return mOrderYetProcess;
     }
 
 
-    async getstatuspronto(arr: Pedido[]) {
-        const foundDoctor = arr.find(item => item.status_pedido[0].status[0].Descricao == "pronto")
-        return foundDoctor || null;
+    async listorderingforstatus(arr: any[], stage: string) {
+        let listgeneric = [];
+        arr.map(async (element) => {
+            let arrStatus: any = element.status_pedido[0].status
+            if (arrStatus._doc.Descricao == stage) {
+                listgeneric.push(element)
+            }
+        });
+
+        return listgeneric;
     }
 }

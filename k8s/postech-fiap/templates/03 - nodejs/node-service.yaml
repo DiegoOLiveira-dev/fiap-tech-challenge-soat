@@ -6,9 +6,14 @@ spec:
   selector:
     #app: node-app
     {{- include "postech-fiap.selectorLabels" . | nindent 4 }}
+  # ports:
+  #   - protocol: TCP
+  #     nodePort: 31100
+  #     port: 80
+  #     targetPort: 3000
+  # type: NodePort
   ports:
     - protocol: TCP
-      nodePort: 31100
-      port: 80
+      port: 3000
       targetPort: 3000
-  type: NodePort
+  type: LoadBalancer

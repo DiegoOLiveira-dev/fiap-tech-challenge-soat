@@ -7,8 +7,12 @@ spec:
   selector:
     #app: mongodb
     {{- include "postech-fiap.selectorLabels" . | nindent 4 }}
-  type: NodePort
+  # type: NodePort
+  # ports:
+  #   - port: 27017      
+  #     targetPort: 27017
+  #     nodePort: 30220
+  type: LoadBalancer
   ports:
-    - port: 27017      
+    - port: 27017
       targetPort: 27017
-      nodePort: 30220

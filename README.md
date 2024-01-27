@@ -108,5 +108,5 @@ Apos tudo estar de pe, podemos realizar os testes via postman apontando para a n
 
 ## 6. Desenho de arquitetura cloud
 
-<img src="./assets/POSTECH.drawio.png">
+<img src="./assets/posnew.png">
 

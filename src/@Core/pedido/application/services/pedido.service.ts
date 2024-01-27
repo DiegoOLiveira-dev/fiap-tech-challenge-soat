@@ -63,23 +63,47 @@ export class PedidoService implements PedidoUseCase {
     async getAllPedidos(): Promise<Pedido[]> {
 
         let mapAllPedidos = await this.pedidoPersistencePort.getAllPedido();
+        let mlistTemp = [];
+        let mOrderYetProcess = [];
 
-        // mapAllPedidos.map(async (item) => {
-        //     item.status_pedido.forEach(item => {
-        //         if (item.status.id_status == "5") {
-        //             console.log("remove")
-        //             delete item.status
-        //             delete item.date
-        //         }
+        mapAllPedidos.map(async (element) => {
+            let arrStatus: any = element.status_pedido[0].status
+            if (arrStatus._doc.Descricao != "Finalizado") {
+                mlistTemp.push(element)
+            }
+            //mOrderYetProcess.push(await this.getstatuspronto(mlistTemp))
+        });
 
-        //     })
+        mlistTemp.map(async (element) => {
+            let arrStatus: any = element.status_pedido[0].status
+            if (arrStatus._doc.Descricao == "pronto") {
+                mOrderYetProcess.push(element)
+            }
+            //mOrderYetProcess.push(await this.getstatuspronto(mlistTemp))
+        });
 
-        // })
-        return mapAllPedidos;
+        mlistTemp.map(async (element) => {
+            let arrStatus: any = element.status_pedido[0].status
+            if (arrStatus._doc.Descricao == "em preparo") {
+                mOrderYetProcess.push(element)
+            }
+            //mOrderYetProcess.push(await this.getstatuspronto(mlistTemp))
+        });
 
+        mlistTemp.map(async (element) => {
+            let arrStatus: any = element.status_pedido[0].status
+            if (arrStatus._doc.Descricao == "Recebido") {
+                mOrderYetProcess.push(element)
+            }
+            //mOrderYetProcess.push(await this.getstatuspronto(mlistTemp))
+        });
+
+        return mOrderYetProcess;
     }
 
 
-
-
+    async getstatuspronto(arr: Pedido[]) {
+        const foundDoctor = arr.find(item => item.status_pedido[0].status[0].Descricao == "pronto")
+        return foundDoctor || null;
+    }
 }

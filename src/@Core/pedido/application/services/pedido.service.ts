@@ -67,29 +67,37 @@ export class PedidoService implements PedidoUseCase {
         let mOrderYetProcess = [];
 
         mapAllPedidos.map(async (element) => {
-            let arrStatus: any = element.status_pedido[0].status
+            let lastPos = element.status_pedido.length - 1;
+            let arrStatus: any = element.status_pedido[lastPos].status
             if (arrStatus._doc.Descricao != "Finalizado") {
                 mlistTemp.push(element)
             }
         });
 
-        mOrderYetProcess.push(await this.listorderingforstatus(mlistTemp, "pronto"))
-        mOrderYetProcess.push(await this.listorderingforstatus(mlistTemp, "em preparo"))
-        mOrderYetProcess.push(await this.listorderingforstatus(mlistTemp, "Recebido"))
-
-        return mOrderYetProcess;
-    }
-
-
-    async listorderingforstatus(arr: any[], stage: string) {
-        let listgeneric = [];
-        arr.map(async (element) => {
-            let arrStatus: any = element.status_pedido[0].status
-            if (arrStatus._doc.Descricao == stage) {
-                listgeneric.push(element)
+        mlistTemp.map(async (element) => {
+            let lastPos = element.status_pedido.length - 1;
+            let arrStatus: any = element.status_pedido[lastPos].status
+            if (arrStatus._doc.Descricao == "pronto") {
+                mOrderYetProcess.push(element)
             }
         });
 
-        return listgeneric;
+        mlistTemp.map(async (element) => {
+            let lastPos = element.status_pedido.length - 1;
+            let arrStatus: any = element.status_pedido[lastPos].status
+            if (arrStatus._doc.Descricao == "em preparo") {
+                mOrderYetProcess.push(element)
+            }
+        });
+
+        mlistTemp.map(async (element) => {
+            let lastPos = element.status_pedido.length - 1;
+            let arrStatus: any = element.status_pedido[lastPos].status
+            if (arrStatus._doc.Descricao == "Recebido") {
+                mOrderYetProcess.push(element)
+            }
+        });
+
+        return mOrderYetProcess;
     }
 }

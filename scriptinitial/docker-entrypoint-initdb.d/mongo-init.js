@@ -116,19 +116,6 @@ var cliente = db.clients.insertMany([
   }
 ])
 
-// var pedido = db.pedidos.insertMany([
-//   {
-//     "id_status": "1",
-//     "descricao_status": "recebido",
-
-//     "id_cliente": "1",
-//     "nome_cliente": "1",
-//     "produtos": [{qtd: 1, produto: products.insertedIds[0]}],
-//     "total": "18",
-//   }
-
-// ])
-
 var pedido = db.pedidos.insertMany([
   {
     "id_cliente": "1",
@@ -151,8 +138,8 @@ var pedido = db.pedidos.insertMany([
       status: statuspreparo.insertedIds[4],
       date: new Date().toString()
     }],
+    date_order: new Date().toString(),
     valor_total: "28"
   }
 
 ])
-

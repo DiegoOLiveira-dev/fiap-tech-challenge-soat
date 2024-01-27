@@ -16,6 +16,11 @@ export class SavePedidoRequest {
     @ApiProperty()
     readonly nome_cliente: string;
 
+    @Expose()
+    @IsNotEmpty()
+    @ApiProperty()
+    readonly date_order: string;
+
 
     @Expose()
     @IsNotEmpty()
@@ -34,7 +39,7 @@ export class SavePedidoRequest {
 
     toCommand(): SavePedidoCommand {
         return new SavePedidoCommand(this.id_cliente,
-            this.nome_cliente, this.produtos, this.status_pedido, this.total)
+            this.nome_cliente, this.produtos, this.status_pedido,this.date_order, this.total)
     }
 
 }

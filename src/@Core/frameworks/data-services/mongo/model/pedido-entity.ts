@@ -20,6 +20,9 @@ export class Pedido {
     status_pedido: SelectedStatusPedido[];
 
     @Prop()
+    date_order: string;
+
+    @Prop()
     total: number;
 }
 

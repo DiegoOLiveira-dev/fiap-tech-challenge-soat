@@ -151,6 +151,7 @@ var pedido = db.pedidos.insertMany([
       status: statuspreparo.insertedIds[4],
       date: new Date().toString()
     }],
+    date_order: new Date().toString(),
     valor_total: "28"
   }
 

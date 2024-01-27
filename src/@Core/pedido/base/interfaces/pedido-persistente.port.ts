@@ -6,6 +6,7 @@ export abstract class PedidoPersistencePort {
     abstract getAllPedido(): Promise<Pedido[]>
     abstract getSelectedProduct(filter: any): Promise<Product[]>
     abstract updateStatus(body: any): Promise<any>
+    abstract getSelectedOrder(filter: any): Promise<Pedido[]>
 
 
 } 

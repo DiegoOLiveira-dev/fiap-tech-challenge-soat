@@ -26,6 +26,7 @@ export class SavePedidoUseCase {
                 nome_cliente: command.nome_cliente,
                 produtos: command.produtos,
                 status_pedido: command.status_pedido,
+                date_order: command.date_order,
                 total: total
             };
             return await this.pedidoPersistencePort.persistPedido(pedido)

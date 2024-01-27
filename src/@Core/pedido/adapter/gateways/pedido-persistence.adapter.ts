@@ -33,6 +33,9 @@ export class PedidoPersistenceAdapter implements PedidoPersistencePort {
         return allpedido
     }
 
-    
+    async getSelectedOrder(filter: any): Promise<Pedido[]> {
+        const selectedOrder = await this.dataServices.pedido.getByFilter(filter)
+        return selectedOrder    
+    }
 
 }

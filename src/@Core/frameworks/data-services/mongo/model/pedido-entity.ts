@@ -1,16 +1,11 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import mongoose, { HydratedDocument } from 'mongoose';
-import { Product } from './product-entity';
-import { SelectedItems } from 'src/@Core/pedido/domain/pedido';
-import { Selected } from './selected';
+import { HydratedDocument } from 'mongoose';
+import { Selected, SelectedStatusPedido } from './selected';
 
 export type PedidoDocument = HydratedDocument<Pedido>;
 
 @Schema()
 export class Pedido {
-
-    @Prop()
-    descricao_status: string;
 
     @Prop()
     id_cliente: string;
@@ -22,10 +17,13 @@ export class Pedido {
     produtos: Selected[];
 
     @Prop()
-    total: number;
+    status_pedido: SelectedStatusPedido[];
 
     @Prop()
-    id_status: string;
+    date_order: string;
+
+    @Prop()
+    total: number;
 }
 
 export const PedidoSchema = SchemaFactory.createForClass(Pedido);

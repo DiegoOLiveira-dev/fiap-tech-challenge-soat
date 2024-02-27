@@ -1,8 +1,8 @@
 import { Module, forwardRef } from "@nestjs/common";
-import { ServicesOut } from "./out";
-import { ApplicationModule } from "../application/application.module";
+import { ServicesOut } from "./index";
 import { MongoDataServicesModule } from "../../frameworks/data-services/mongo/mongo-data-services.module";
-import { CategoriesController } from "./in/web/categories.controller";
+import { CategoriesController } from "./controllers/categories.controller";
+import { ApplicationModule } from "../core/core.module";
 
 @Module({
     imports: [

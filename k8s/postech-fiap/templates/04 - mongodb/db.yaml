@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "postech-fiap.fullname" . }}-mongo
+  labels:
+    {{- include "postech-fiap.labels" . | nindent 4 }}-mongo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      {{- include "postech-fiap.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "postech-fiap.labels" . | nindent 8 }}-mongo
+        {{- with .Values.podLabels }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+    spec:
+      containers:
+      - name: mongodb
+        image: mongo
+        env:
+        - name: MONGO_INITDB_ROOT_USERNAME
+          value: admin
+        - name: MONGO_INITDB_DATABASE
+          value: auth
+        - name: MONGO_INITDB_ROOT_PASSWORD
+          value: pass
+        ports:
+        - containerPort: 27017
+        volumeMounts:
+        - name: mongodb-data
+          mountPath: /data/db
+        - name: "init-database"
+          mountPath: "/docker-entrypoint-initdb.d/"
+        resources:
+          requests:
+            cpu: "0.5"
+          limits:
+            cpu: "0.8"
+      volumes:
+      - name: mongodb-data
+      - name: "init-database"
+        configMap:
+          name: create-db-configmap

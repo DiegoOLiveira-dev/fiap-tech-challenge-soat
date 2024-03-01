@@ -15,7 +15,7 @@ jobs:
           node-version: 16
       - run: |
             npm install
-            npm build
+            npm run build
 
   # publish-npm:
   #   needs: build

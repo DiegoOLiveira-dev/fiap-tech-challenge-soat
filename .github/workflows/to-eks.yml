@@ -25,13 +25,17 @@ jobs:
           aws eks --region us-east-1 update-kubeconfig --name education-eks-2osN4fjs
 
       - name: Initialize Terraform
+        working-directory: ./infra
         run: terraform init
         
       - name: Buscar tfstate atual
+        working-directory: ./infra
         run: terraform state pull > terraform.tfstate
 
       - name: Plan Terraform Changes
+        working-directory: ./infra
         run: terraform plan -out=tfplan
 
       - name: Apply Terraform Changes
+        working-directory: ./infra
         run: terraform apply -auto-approve tfplan

@@ -1,0 +1,37 @@
+name: Deploy to EKS
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Install Terraform
+        uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: 1.4.2  # Coloque a versão do Terraform que você está usando
+
+      - name: Configure AWS Credentials
+        run: |
+          aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws eks --region us-east-1 update-kubeconfig --name <your-cluster-name>
+
+      - name: Initialize Terraform
+        run: terraform init
+        
+      - name: Buscar tfstate atual
+        run: terraform state pull > terraform.tfstate
+
+      - name: Plan Terraform Changes
+        run: terraform plan -out=tfplan
+
+      - name: Apply Terraform Changes
+        run: terraform apply -auto-approve tfplan

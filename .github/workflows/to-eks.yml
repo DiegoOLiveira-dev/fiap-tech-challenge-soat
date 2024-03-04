@@ -19,6 +19,7 @@ jobs:
           terraform_version: 1.4.2  # Coloque a versão do Terraform que você está usando
 
       - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
         run: |
           aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}

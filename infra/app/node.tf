@@ -39,7 +39,7 @@ resource "kubernetes_deployment" "node_app_deployment" {
             name = "MONGO_URL"
             value_from {
               config_map_key_ref {
-                name = kubernetes_config_map.node_configmap.metadata.0.name
+                name = "node-configmap"
                 key  = "mongo-db-url"
               }
             }

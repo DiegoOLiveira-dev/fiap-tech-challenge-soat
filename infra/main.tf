@@ -1,5 +1,9 @@
 # main.tf
 
+provider "aws" {
+  region = "us-east-1"
+}
+
 # Import ConfigMaps
 module "configmaps" {
   source = "./configmaps"

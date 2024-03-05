@@ -27,7 +27,7 @@ jobs:
 
       - name: Login EKS
         run: |
-          aws eks --region us-east-1 update-kubeconfig --name <nome do cluster>
+          aws eks --region us-east-1 update-kubeconfig --name education-eks-2osN4fjs
 
       - name: Initialize Terraform
         working-directory: ./infra

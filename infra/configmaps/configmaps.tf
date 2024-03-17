@@ -3,6 +3,6 @@ resource "kubernetes_config_map" "node_configmap" {
     name = "node-configmap"
   }
   data = {
-    mongo-db-url = "mongodb://admin:pass@mongodb-service:27017"
+    mongo-db-url = "mongodb+srv://mongo:mongoteste@fiap.wn2gezr.mongodb.net/?retryWrites=true&w=majority&appName=FIAP"
   }
 }

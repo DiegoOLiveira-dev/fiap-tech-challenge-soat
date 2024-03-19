@@ -109,8 +109,7 @@ Apos tudo estar de pe, podemos realizar os testes via postman apontando para a n
 
 <img src="./assets/posnew.png">
 
-
-## Infra terraform
+## 7.Infra terraform
 
 Para funcionar corretamente o deploy automatizado precisamos preencher algumas variaveis que sao geradas no momento da criacao do cluster e por motivos de custos nao colocamos no secret manage
 
@@ -119,3 +118,7 @@ Para funcionar corretamente o deploy automatizado precisamos preencher algumas v
 - certificado de autenticacao do cluster
 
 Os pontos de insercao dos dados estao demarcados nos arquivos to-eks.yml, e no terraform.tf
+
+## 8.ER
+
+<img src="./assets/ER.png">

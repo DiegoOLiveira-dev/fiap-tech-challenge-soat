@@ -1,4 +1,4 @@
-import { Payment } from "src/@Core/payment/core/entity/Payment";
+import { Payment } from "../../../payment/core/entity/Payment";
 
 export abstract class PaymentPersistencePort {
     abstract persistPayment(payment: Payment): Promise<any>

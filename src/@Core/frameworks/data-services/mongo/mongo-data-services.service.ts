@@ -5,11 +5,11 @@ import { IDataServices } from "../../../abstracts/data-services.abstract";
 import { MongoGenericRepository } from "./mongo-generic-repository";
 import { Product, ProductDocument } from "./model/product-entity";
 import { Category, CategoryDocument } from "./model/category-entity";
-import { Client } from "src/@Core/clients/core/entity/Client";
+import { Client } from "../../../clients/core/entity/Client";
 import { ClientDocument } from "./model/client-entity";
 
 import { Pedido, PedidoDocument } from "./model/pedido-entity";
-import { Payment } from "src/@Core/payment/core/entity/Payment";
+import { Payment } from "../../../payment/core/entity/Payment";
 import { PaymentDocument } from "./model/payment-entity";
 import { StatusPreparo, StatusPreparoDocument } from "./model/statuspreparo-entity";
 

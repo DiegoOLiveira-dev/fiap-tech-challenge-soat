@@ -1,7 +1,7 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { Expose } from "class-transformer";
 import { IsNotEmpty } from "class-validator";
-import { SavePaymentCommand } from "src/@Core/payment/base/interfaces/payment.command";
+import { SavePaymentCommand } from "../../../payment/base/interfaces/payment.command";
 
 export class SavePaymentRequest {
     @Expose()

@@ -1,6 +1,5 @@
 import { HttpException, Injectable } from "@nestjs/common";
 import { PedidoPersistencePort } from "../../base/interfaces/pedido-persistente.port";
-import { SelectedStatusPedido } from "src/@Core/frameworks/data-services/mongo/model/selected";
 
 
 @Injectable()

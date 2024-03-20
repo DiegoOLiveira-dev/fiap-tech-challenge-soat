@@ -2,7 +2,7 @@ import { ApiProperty } from "@nestjs/swagger";
 import { Expose } from "class-transformer";
 import { IsNotEmpty } from "class-validator";
 import { SavePedidoCommand } from "./save-pedido.command";
-import { Selected, SelectedStatusPedido } from "src/@Core/frameworks/data-services/mongo/model/selected";
+import { Selected, SelectedStatusPedido } from "../../../frameworks/data-services/mongo/model/selected";
 
 export class SavePedidoRequest {
 

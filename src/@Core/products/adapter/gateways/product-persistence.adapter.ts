@@ -1,7 +1,7 @@
 import { HttpException, Injectable } from "@nestjs/common";
 import { ProductPersistencePort } from "../../base/interfaces/product-persistente.port";
 import { Product } from "../../core/entity/Products";
-import { IDataServices } from "src/@Core/abstracts";
+import { IDataServices } from "../../../abstracts";
 
 @Injectable()
 export class ProductPersistenceAdapter implements ProductPersistencePort {

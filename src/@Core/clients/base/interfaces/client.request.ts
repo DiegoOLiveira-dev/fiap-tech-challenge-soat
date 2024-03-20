@@ -1,7 +1,7 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { Expose } from "class-transformer";
 import { IsNotEmpty } from "class-validator";
-import { SaveClientCommand } from "src/@Core/clients/base/interfaces/client.command";
+import { SaveClientCommand } from "../../../clients/base/interfaces/client.command";
 
 export class SaveClientRequest {
     @Expose()

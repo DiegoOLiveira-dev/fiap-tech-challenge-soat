@@ -1,7 +1,7 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { Expose } from "class-transformer";
 import { IsNotEmpty } from "class-validator";
-import { SaveStatusPreparoCommand } from "src/@Core/statuspreparo/base/interfaces/statuspreparo.command";
+import { SaveStatusPreparoCommand } from "../../../statuspreparo/base/interfaces/statuspreparo.command";
 
 export class SaveStatusPreparoRequest {
     @Expose()

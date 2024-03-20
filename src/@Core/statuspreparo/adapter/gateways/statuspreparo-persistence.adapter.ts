@@ -1,7 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { StatusPreparoPersistencePort } from "../../base/interfaces/statuspreparo-persistente.port";
 import { StatusPreparo } from "../../core/entity/StatusPreparo";
-import { IDataServices } from "src/@Core/abstracts";
+import { IDataServices } from "../../../abstracts";
 
 @Injectable()
 export class StatusPreparoPersistenceAdapter implements StatusPreparoPersistencePort {

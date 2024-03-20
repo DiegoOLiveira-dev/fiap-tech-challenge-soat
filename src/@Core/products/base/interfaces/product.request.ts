@@ -1,8 +1,8 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { Expose } from "class-transformer";
 import { IsNotEmpty } from "class-validator";
-import { Category } from "src/@Core/frameworks/data-services/mongo/model/category-entity";
-import { SaveProductCommand } from "src/@Core/products/base/interfaces/product.command";
+import { Category } from "../../../frameworks/data-services/mongo/model/category-entity";
+import { SaveProductCommand } from "../../../products/base/interfaces/product.command";
 
 export class SaveProductRequest {
     @Expose()

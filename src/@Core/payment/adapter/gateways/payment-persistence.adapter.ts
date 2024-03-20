@@ -1,7 +1,7 @@
 import { HttpException, Injectable } from "@nestjs/common";
 import { PaymentPersistencePort } from "../../base/interfaces/payment-persistente.port";
 import { Payment } from "../../core/entity/Payment";
-import { IDataServices } from "src/@Core/abstracts";
+import { IDataServices } from "../../../abstracts";
 
 @Injectable()
 export class PaymentPersistenceAdapter implements PaymentPersistencePort {

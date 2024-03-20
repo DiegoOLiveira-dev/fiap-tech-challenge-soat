@@ -1,7 +1,7 @@
 import { Body, Controller, Get, Param, Patch, Post, UsePipes, ValidationPipe } from '@nestjs/common';
 import { ApiBody, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { SavePedidoRequest } from '../../base/interfaces/save-pedido.request';
-import { SavePedidoCommand } from 'src/@Core/pedido/base/interfaces/save-pedido.command';
+import { SavePedidoCommand } from '../../../pedido/base/interfaces/save-pedido.command';
 import { GetPedidoUseCase } from '../../core/usecases/get-pedido.use-case';
 import { UpdatePedidoUseCase } from '../../core/usecases/update-pedido.use-case';
 import { SavePedidoUseCase } from '../../core/usecases/save-pedido.use-case';

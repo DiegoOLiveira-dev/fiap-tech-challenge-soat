@@ -1,4 +1,4 @@
-import { Product } from 'src/@Core/products/core/entity/Products';
+import { Product } from '../../../products/core/entity/Products';
 import { Pedido } from '../../core/entity/pedido';
 
 export abstract class PedidoPersistencePort {

@@ -1,7 +1,6 @@
 import { Injectable } from "@nestjs/common";
 import { Pedido } from "../entity/pedido";
 import { PedidoPersistencePort } from "../../base/interfaces/pedido-persistente.port";
-import { Product } from "src/@Core/products/core/entity/Products";
 
 
 @Injectable()

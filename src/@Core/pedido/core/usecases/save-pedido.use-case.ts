@@ -3,7 +3,7 @@ import { Pedido } from "../entity/pedido";
 import { PedidoPersistencePort } from "../../base/interfaces/pedido-persistente.port";
 import { SavePedidoCommand } from "../../base/interfaces/save-pedido.command";
 import { GetSelectedProductUseCase } from "./get-selected-product.use-case";
-import { SavePaymentUseCase } from "src/@Core/payment/core/usecases/save-payment.use-case";
+import { SavePaymentUseCase } from "../../../payment/core/usecases/save-payment.use-case";
 
 
 @Injectable()

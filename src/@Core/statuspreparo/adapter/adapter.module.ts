@@ -2,7 +2,7 @@ import { Module, forwardRef } from "@nestjs/common";
 import { ServicesOut } from ".";
 import { SaveStatusPreparoController } from "./controllers/statuspreparo.controller";
 import { ApplicationModule } from "../core/application.module";
-import { MongoDataServicesModule } from "src/@Core/frameworks/data-services/mongo/mongo-data-services.module";
+import { MongoDataServicesModule } from "../../frameworks/data-services/mongo/mongo-data-services.module";
 
 @Module({
     imports: [

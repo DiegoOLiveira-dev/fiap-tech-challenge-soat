@@ -1,8 +1,8 @@
 import { HttpException, Injectable } from "@nestjs/common";
 import { Pedido } from "../../core/entity/pedido";
 import { PedidoPersistencePort } from "../../base/interfaces/pedido-persistente.port";
-import { Product } from "src/@Core/products/core/entity/Products";
-import { IDataServices } from "src/@Core/abstracts";
+import { Product } from "../../../products/core/entity/Products";
+import { IDataServices } from "../../../abstracts";
 
 @Injectable()
 export class PedidoPersistenceAdapter implements PedidoPersistencePort {

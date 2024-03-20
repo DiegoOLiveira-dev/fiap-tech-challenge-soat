@@ -1,7 +1,7 @@
 import { HttpException, Injectable } from "@nestjs/common";
 import { ClientPersistencePort } from "../../base/interfaces/client-persistente.port";
 import { Client } from "../../core/entity/Client";
-import { IDataServices } from "src/@Core/abstracts";
+import { IDataServices } from "../../../abstracts";
 
 @Injectable()
 export class ClientPersistenceAdapter implements ClientPersistencePort {

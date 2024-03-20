@@ -1,4 +1,4 @@
-import { Client } from "src/@Core/clients/core/entity/Client";
+import { Client } from "../../../clients/core/entity/Client";
 
 export abstract class ClientPersistencePort {
     abstract persistClient(client: Client): Promise<any>

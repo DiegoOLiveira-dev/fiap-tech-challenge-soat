@@ -1,4 +1,4 @@
-import { SelectedItemsProdutos, SelectedStatusPedido } from "src/@Core/pedido/core/entity/pedido";
+import { SelectedItemsProdutos, SelectedStatusPedido } from "../../../pedido/core/entity/pedido";
 
 export class SavePedidoCommand {
     ///TODO: ADICIONAR CAMPOS

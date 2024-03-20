@@ -140,3 +140,58 @@ O MongoDB tem caracteristicas atraente em sua adoção:
 ## 8.ER
 
 <img src="./assets/ER.png">
+
+## 9.Dicionario de Dados
+
+# Categorias
+
+| Variável  | Nome da Variável | Tipo de Variável | Descrição                | Valores Permitidos | Possui Valores Nulos? | Exemplo                  |
+| --------- | ---------------- | ---------------- | ------------------------ | ------------------ | --------------------- | ------------------------ |
+| id        | \_id             | GUID             | identificador unico      | Numeros com hifen  | Não                   | 65b07f2152d091c915af4670 |
+| Descricao | description      | string           | Descricao da catergoria. | Caracteres         | Não                   | Bebida                   |
+
+---
+
+# Produtos
+
+| Variável  | Nome da Variável | Tipo de Variável | Descrição             | Valores Permitidos | Possui Valores Nulos? |
+| --------- | ---------------- | ---------------- | --------------------- | ------------------ | --------------------- |
+| id        | \_id             | GUID             | identificador unico   | Numeros com hifen  | Não                   |
+| nome      | name             | string           | Nome do Produto.      | Caracteres         | Não                   |
+| Descricao | description      | string           | Descricao do Produto. | Caracteres         | Não                   |
+| preco     | price            | number           | valor do produto.     | 001 - 999          | Não                   |
+| Categoria | category         | Objeto           | Categoria do produto. | Objeto             | Não                   |
+
+---
+
+# status preparo
+
+| Variável  | Nome da Variável | Tipo de Variável | Descrição               | Valores Permitidos | Possui Valores Nulos? |
+| --------- | ---------------- | ---------------- | ----------------------- | ------------------ | --------------------- |
+| id        | \_id             | GUID             | identificador unico     | Numeros com hifen  | Não                   |
+| id_status | id_status        | number           | identificador do status | 001 - 999          | Não                   |
+| Descricao | description      | string           | Descricao do status.    | string             | Não                   |
+
+---
+
+# cliente
+
+| Variável   | Nome da Variável | Tipo de Variável | Descrição           | Valores Permitidos | Possui Valores Nulos? |
+| ---------- | ---------------- | ---------------- | ------------------- | ------------------ | --------------------- |
+| cpf_client | id_cliente       | number           | identificador unico | 001 - 999          | Não                   |
+| nome       | name             | string           | nome do cliente     | string             | Não                   |
+| email      | email            | caracteres       | email do cliente    | Caracteres         | Não                   |
+
+---
+
+# pedido
+
+| Variável         | Nome da Variável | Tipo de Variável | Descrição                | Valores Permitidos | Possui Valores Nulos? |
+| ---------------- | ---------------- | ---------------- | ------------------------ | ------------------ | --------------------- |
+| id_cliente       | id_cliente       | number           | identificador do cliente | Numeros            | Não                   |
+| nome_cliente     | nome_cliente     | string           | nome do cliente          | string             | Não                   |
+| produtos         | produtos         | object           | produtos selecionados    | Objeto json        | Não                   |
+| status_pagamento | status_pagamento | string           | status do pagamento      | string             | Não                   |
+| status_pedido    | status_pedido    | object           | status do pedidos        | Objeto json        | Não                   |
+| date_order       | date_order       | Date             | data do pedido realizado | Data               | Não                   |
+| valor_total      | valor_total      | number           | valores finais           | Numeros            | Não                   |

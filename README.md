@@ -119,6 +119,24 @@ Para funcionar corretamente o deploy automatizado precisamos preencher algumas v
 
 Os pontos de insercao dos dados estao demarcados nos arquivos to-eks.yml, e no terraform.tf
 
+## 9. Porque MongoDB?
+
+O MongoDB por ser um banco de dados NoSQL de código aberto, foi projetado para oferecer flexibilidade, escalabilidade e desempenho em ambientes com nuvem e aplicativos da web.
+
+O MongoDB adota um de esquema flexível, permitindo que seu desenvolvimento seja armazenado de maneira mais dinâmica e adaptável.
+
+O MongoDB tem caracteristicas atraente em sua adoção:
+
+**Flexibilidade do esquema**: Oferece flexibilidade em seus esquema, permitindo armazenamento sem uma estrutura predefinida. Isso facilita a adaptação/mudanças nos requisitos e permite uma modelagem de dados mais dinâmica.
+
+**Escala horizontal**: É altamente escalável e lida com grandes volumes de dados distribuídos em vários servidores. Suporta replicação automática e fragmentação de dados, permitindo que OS dimensionem horizontalmente à medida que crescem.
+
+**Desempenho**: Oferece um desempenho rápido para operações de leitura e gravação, principalmente com leituras intensiva. Sua arquitetura de indexação eficiente e consultas poderosas ajudam a otimizar o acesso aos dados.
+
+**Modelo de dados rico**: Suporta uma ampla variedade de tipos de dados e recursos avançados, como arrays, documentos incorporados e indexação geoespacial. Isso permite que possamos criar aplicativos ricos e complexos sem comprometer a eficiência ou a escalabilidade.
+
+**Comunidade e suporte**: Existe uma grande comunidade de usuários e desenvolvedores ativos, oferecendo recursos, tutoriais e suporte online. Além disso, a empresa por trás do MongoDB, a MongoDB Inc., oferece serviços de suporte profissional para organizações que precisam de assistência adicional.
+
 ## 8.ER
 
 <img src="./assets/ER.png">
